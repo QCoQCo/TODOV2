@@ -5,19 +5,20 @@ const TaskTest=({userId})=>{
     // 유저 아이디별로 할일목록을 출력하려 했으나 userId를 백엔드로 옮기는 방법을 모름
     //SELECT * FROM tasks WHERE userId=(?)
     // 내일 다시시도
+    //AxiosError{message: 'Request failed with status code 404', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {…}, request: XMLHttpRequest,}
     const[tasks,setTasks]=useState([]);
 
     const getTaskData=async()=>{
         try {
-            const res= await axios.get("http://localhost:4000/userTask",userId);
-            //AxiosError{message: 'Request failed with status code 404', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {…}, request: XMLHttpRequest,}
-            if(res.ok){
-                const data=await res.json();
-                setTasks(data);
+            const res=await axios.get("http://localhost:4000/userTask",{params:{userId}});
+            if(res.status>=200&&res.status<300){
+                // const data=await res.json();
+                setTasks(res.data);
             }else{
                 console.error('검색실패');
                 setTasks([]);
             }
+            // const res=await axios.get("")
         }catch(error){
             console.log(error);
             setTasks([]);

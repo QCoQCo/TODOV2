@@ -8,7 +8,9 @@ const PORT = process.env.PORT || 4000;
 // const db = require('./config/db.js');
 
 app.use(express.json());
+// appRouter.use(express.json());
 app.use(cors());
+// appRouter.use(cors());
 
 
 
@@ -17,28 +19,34 @@ app.use(cors());
 // });
 //SELECT * FROM tasks WHERE userId=(?)
 
-app.listen(PORT, () => {
-    console.log(`Server On : http://localhost:${PORT}/`);
-});
 
-db.connect((err)=>{
-    if(err){
-        console.error('Database connection failed: '+err.stack);
-        return;
-    }
-    console.log('Connected to Database.');
-});
+// db.connect((err)=>{
+//     if(err){
+//         console.error('Database connection failed: '+err.stack);
+//         return;
+//     }
+//     console.log('Connected to Database.');
+// });
 
 app.get("/",(req,res)=>{
     res.json("welcome to BACKEND.");
 });
 
-app.get("/users", (req, res) => {
+app.get("/users", async(req, res) => {
     const q = "SELECT * FROM users";
-    db.query(q, (err,data) => {
-        if(err)return res.json(err);
+
+    try {
+        const[data]=await db.query(q);
         return res.json(data);
-    });
+    } catch (error) {
+        console.error(err);
+        res.status(500).json({ error: '데이터베이스 오류가 발생했습니다.' });
+        return res.json(error);
+    }
+    // db.query(q, (err,data) => {
+    //     if(err)return res.json(err);
+    //     return res.json(data);
+    // });
 });
 
 app.get("/tasks", (req, res) => {
@@ -49,28 +57,36 @@ app.get("/tasks", (req, res) => {
     });
 });
 appRouter.get("/userTask", async (req,res)=>{
-    const q="SELECT * FROM tasks WHERE userId LIKE ?";
-    const {v}=req.query;
+    const q="SELECT * FROM tasks WHERE userId = ?";
+    const userId=req.query.userId;
 
-    if (!v) {
+    if (!userId) {
         return res.status(400).json({ error: '검색어를 입력해주세요.' });
     }
 
     try {
-        const[r]=await db.execute(q,[`%${v}%`]);
+        const connection=await db.getConnection();
+        const[r]=await connection.execute(q,[`${userId}`]);
+        connection.release();
         res.json(r);
     } catch (error) {
         console.error('데이터베이스 쿼리 오류:', error);
+        console.error(error.stack); // 스택 트레이스 로깅 추가
         res.status(500).json({ error: '데이터베이스 오류가 발생했습니다.' });
     }
-
-
+    // const userId=req.query.userId;
+    // if(userId){
+    //     res.json(userId);
+    // }else{
+    //     res.status(400).send("userId파라미터가 필요합니다.");
+    // }
     // db.query(q,v,(err,rows,fields)=>{
     //     if(err)return res.json(err);
     //     return res.json(rows);
     // })
 
 });
+app.use(appRouter);
 //추가
 app.post("/userSignup", (req, res) => {
     const q = "insert into users (name, nickname, userId, password, email) values (?)";
@@ -82,6 +98,9 @@ app.post("/userSignup", (req, res) => {
     });
 });
 
+app.listen(PORT, () => {
+    console.log(`Server On : http://localhost:${PORT}/`);
+});
 
 
 // app.get("/", (req, res) => {
