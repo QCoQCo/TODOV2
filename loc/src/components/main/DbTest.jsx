@@ -24,10 +24,10 @@ const DbTest=()=>{
 
     const conListData = async () => {
         try {
-        const res = await axios.get("http://localhost:4000/users");
-        setListData(res.data);// console.log(res);
+            const res = await axios.get("http://localhost:4000/users");
+            setListData(res.data);// console.log(res);
         } catch (err) {
-        console.log(err);
+            console.log(err);
         }
     };
 

@@ -3,6 +3,7 @@ import cors from 'cors';
 import db from "./config/db.js";
 // const express = require('express');
 const app = express();
+const appRouter=express.Router();
 const PORT = process.env.PORT || 4000;
 // const db = require('./config/db.js');
 
@@ -47,7 +48,29 @@ app.get("/tasks", (req, res) => {
         return res.json(data);
     });
 });
-app.get("/userTask")
+appRouter.get("/userTask", async (req,res)=>{
+    const q="SELECT * FROM tasks WHERE userId LIKE ?";
+    const {v}=req.query;
+
+    if (!v) {
+        return res.status(400).json({ error: '검색어를 입력해주세요.' });
+    }
+
+    try {
+        const[r]=await db.execute(q,[`%${v}%`]);
+        res.json(r);
+    } catch (error) {
+        console.error('데이터베이스 쿼리 오류:', error);
+        res.status(500).json({ error: '데이터베이스 오류가 발생했습니다.' });
+    }
+
+
+    // db.query(q,v,(err,rows,fields)=>{
+    //     if(err)return res.json(err);
+    //     return res.json(rows);
+    // })
+
+});
 //추가
 app.post("/userSignup", (req, res) => {
     const q = "insert into users (name, nickname, userId, password, email) values (?)";
@@ -58,6 +81,9 @@ app.post("/userSignup", (req, res) => {
         return res.json(data);
     });
 });
+
+
+
 // app.get("/", (req, res) => {
 //     const sqlQuery = "INSERT INTO requested (rowno) VALUES (1)";
 //     db.query(sqlQuery, (err, result) => {
