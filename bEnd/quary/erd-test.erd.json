@@ -1,0 +1,114 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -89,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 4,
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "relationshipOptimization": false,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": -1,
+    "ignoreSaveSettings": 0
+  },
+  "doc": {
+    "tableIds": [
+      "9SjM3SOMKwxjFeSW1GMuX"
+    ],
+    "relationshipIds": [],
+    "indexIds": [],
+    "memoIds": []
+  },
+  "collections": {
+    "tableEntities": {
+      "9SjM3SOMKwxjFeSW1GMuX": {
+        "id": "9SjM3SOMKwxjFeSW1GMuX",
+        "name": "user",
+        "comment": "",
+        "columnIds": [
+          "i0-wKEIP2-YVBknHSkyMK"
+        ],
+        "seqColumnIds": [
+          "i0-wKEIP2-YVBknHSkyMK"
+        ],
+        "ui": {
+          "x": 653,
+          "y": 527,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1742230339294,
+          "createAt": 1742227996463
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "i0-wKEIP2-YVBknHSkyMK": {
+        "id": "i0-wKEIP2-YVBknHSkyMK",
+        "tableId": "9SjM3SOMKwxjFeSW1GMuX",
+        "name": "id",
+        "comment": "",
+        "dataType": "INT(10)",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1742230413883,
+          "createAt": 1742228008118
+        }
+      }
+    },
+    "relationshipEntities": {},
+    "indexEntities": {},
+    "indexColumnEntities": {},
+    "memoEntities": {}
+  },
+  "lww": {
+    "9SjM3SOMKwxjFeSW1GMuX": [
+      "tableEntities",
+      1742227996462,
+      -1,
+      {
+        "name": 1742228003860
+      }
+    ],
+    "i0-wKEIP2-YVBknHSkyMK": [
+      "tableColumnEntities",
+      1742228008117,
+      -1,
+      {
+        "name": 1742230349783,
+        "dataType": 1742230383386,
+        "options(notNull)": 1742230389021,
+        "default": 1742230413883
+      }
+    ]
+  }
+}

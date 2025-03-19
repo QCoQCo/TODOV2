@@ -1,0 +1,22 @@
+.Gnb {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    z-index: 500;
+}
+
+.Gnb .gnb-inner {
+    display: flex;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.Gnb .gnb-inner>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 48px;
+}

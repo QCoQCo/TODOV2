@@ -1,0 +1,47 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.6));
+    z-index: 600;
+}
+
+.header .header-inner {
+    position: relative;
+    max-width: 1024px;
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.header .header-inner .logo {
+    width: 40px;
+    padding-top: 16px;
+}
+
+.header .header-inner .logo img {
+    width: 100%;
+    height: auto
+}
+
+.header .header-inner .p-name {
+    color: #fff;
+    line-height: 68px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+.header .header-inner .md-btn {
+    width: 32px;
+    padding-top: 16px;
+}
+
+.header .header-inner .md-btn img {
+    width: 100%;
+    height: auto
+}

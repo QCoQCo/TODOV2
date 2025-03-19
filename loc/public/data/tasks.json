@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "tasks": [
+    {
+      "post_id": 1010,
+      "user_id": 1739923800526,
+      "location": "부산 해운대",
+      "post_time": 1738221000000,
+      "images": ["/assets/images/post/post12.jpg", "/assets/images/post/post13.jpg"],
+      "content": "부산 해운대에서 황홀한 일몰을 감상했어요. 사진으로는 다 담을 수 없는 이 분위기!"
+    },
+    {
+      "post_id": 1009,
+      "user_id": 1739923787321,
+      "location": "여수 오동도",
+      "post_time": 1739486000000,
+      "images": ["/assets/images/post/post10.jpg", "/assets/images/post/post11.jpg"],
+      "content": "힐링이 필요할 때 여수 오동도만한 곳이 없어요. 푸른 하늘과 바다가 만들어낸 환상적인 뷰!"
+    },
+    {
+      "post_id": 1008,
+      "user_id": 1739923752154,
+      "location": "강릉 경포대",
+      "post_time": 1739135000000,
+      "images": ["/assets/images/post/post9.jpg"],
+      "content": "강릉 경포대에서 한적한 산책을 하며 일상의 스트레스를 날려버렸어요. 완전 추천합니다!"
+    },
+    {
+      "post_id": 1007,
+      "user_id": 1739923752154,
+      "location": "강릉 경포대",
+      "post_time": 1737641000000,
+      "images": ["/assets/images/post/post8.jpg"],
+      "content": "이번에 간 강릉 경포대, 기대 이상이었어요! 사람도 많지 않고 조용하게 힐링하기 딱 좋네요."
+    },
+    {
+      "post_id": 1006,
+      "user_id": 1739923715204,
+      "location": "인천 차이나타운",
+      "post_time": 1738677000000,
+      "images": ["/assets/images/post/post6.jpg", "/assets/images/post/post7.jpg"],
+      "content": "여행의 묘미는 역시 풍경과 음식! 인천 차이나타운에서 맛있는 먹거리와 멋진 뷰를 동시에 즐겼어요."
+    },
+    {
+      "post_id": 1005,
+      "user_id": 1739923704268,
+      "location": "서울 남산타워",
+      "post_time": 1739393000000,
+      "images": ["/assets/images/post/post5.png"],
+      "content": "서울 남산타워에서 한적한 산책을 하며 일상의 스트레스를 날려버렸어요. 완전 추천합니다!"
+    },
+    {
+      "post_id": 1004,
+      "user_id": 1739923704268,
+      "location": "여수 오동도",
+      "post_time": 1739319000000,
+      "images": ["/assets/images/post/post4.jpg"],
+      "content": "여수 오동도에서 황홀한 일몰을 감상했어요. 사진으로는 다 담을 수 없는 이 분위기!"
+    },
+    {
+      "post_id": 1003,
+      "user_id": 1739923704268,
+      "location": "부산 해운대",
+      "post_time": 1737425000000,
+      "images": ["/assets/images/post/post3.jpg"],
+      "content": "부산 해운대에서 아름다운 풍경을 감상하며 여유로운 시간을 보냈어요. 꼭 한 번 방문해 보세요!"
+    },
+    {
+      "post_id": 1002,
+      "user_id": 1739923684561,
+      "location": "강릉 경포대",
+      "post_time": 1739111000000,
+      "images": ["/assets/images/post/post2.jpg"],
+      "content": "힐링이 필요할 때 강릉 경포대만한 곳이 없어요. 푸른 하늘과 바다가 만들어낸 환상적인 뷰!"
+    },
+    {
+      "post_id": 1001,
+      "user_id": 1739923684561,
+      "location": "강릉 경포대",
+      "post_time": 1738160000000,
+      "images": ["/assets/images/post/post1.jpg"],
+      "content": "강릉 경포대에서 황홀한 일몰을 감상했어요. 사진으로는 다 담을 수 없는 이 분위기!"
+    }
+  ]    
+}  

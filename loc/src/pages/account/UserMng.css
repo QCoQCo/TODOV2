@@ -1,0 +1,45 @@
+.UserMng {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 800;
+}
+
+.UserMng .manager-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    min-width: 320px;
+    max-width: 1024px;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+}
+
+.top-comp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.top-comp .back-btn {
+    width: 32px;
+    height: 32px;
+}
+
+.top-comp .back-btn img {
+    width: 100%;
+    height: auto;
+}
+
+.top-comp h2 {
+    color: #fff;
+    font-size: 16px;
+}
