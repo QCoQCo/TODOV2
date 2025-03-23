@@ -39,7 +39,7 @@ app.get("/users", async(req, res) => {
         const[data]=await db.query(q);
         return res.json(data);
     } catch (error) {
-        console.error(err);
+        // console.error(err);
         res.status(500).json({ error: '데이터베이스 오류가 발생했습니다.' });
         return res.json(error);
     }

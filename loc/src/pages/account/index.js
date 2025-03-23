@@ -5,6 +5,7 @@ import FindPw from "./FindPw";
 import Signin from "./SignIn";
 import Signup from "./SignUp";
 import SignupComplete from "./SignUpComplete";
+import SettingPage from "./SettingPage";
 
 
 export{
@@ -13,5 +14,6 @@ export{
     FindPw,
     Signin,
     Signup,
-    SignupComplete
+    SignupComplete,
+    SettingPage
 };

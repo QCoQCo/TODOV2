@@ -1,6 +1,6 @@
 import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Main } from './pages/main';
-import { AuthProvider } from './data';
+import { AuthProvider,useDbData } from './data';
 import { Header, Footer, Gnb } from './components/common';
 import { AccountRoutes } from './routes';
 import './App.css';
