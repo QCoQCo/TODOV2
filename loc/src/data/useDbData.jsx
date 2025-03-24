@@ -29,7 +29,7 @@ export const useDbData=({children})=>{
     // return loading?[]:memoizedDbData;
 
     return(
-        <DataContext.Provider value={{memoizedDbData,dbData}}>
+        <DataContext.Provider value={{memoizedDbData}}>
             {children}
         </DataContext.Provider>
     )

@@ -17,7 +17,7 @@ const LayOut = () => {
 
 const App = () => {
   return (
-    <AuthProvider>
+    <useDbData>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<LayOut />}>
@@ -26,7 +26,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </AuthProvider>
+    </useDbData>
   )
 };
 

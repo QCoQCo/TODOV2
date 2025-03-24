@@ -21,9 +21,10 @@ export const List = ({ inputData }) => {
 
 const DbTest = () => {
 
+    // const {getDbdata}=useContext(useDbData());
     const [listData, setListData] = useState([]);
     const [listData2, setListData2] = useState([]);
-    // setListData2(useDbData());
+    
     const conListData = async () => {
         try {
             const res = await axios.get("http://localhost:4000/users");
@@ -34,9 +35,11 @@ const DbTest = () => {
     };
 
     
-
+    
     useEffect(() => {
+        // setListData2(getDbdata());
         conListData();
+        
     }, []);
 
     return (
