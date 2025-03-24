@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const DataContext=createContext();
 
-export const useDbData=({children})=>{
+export const UseDbData=({children})=>{
     const[dbData,setDbData]=useState([]);
     const[loading,setLoading]=useState(true);
     // useEffect(()=>{});

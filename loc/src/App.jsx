@@ -1,6 +1,6 @@
 import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Main } from './pages/main';
-import { AuthProvider,useDbData } from './data';
+import { AuthProvider,UseDbData } from './data';
 import { Header, Footer, Gnb } from './components/common';
 import { AccountRoutes } from './routes';
 import './App.css';
@@ -17,7 +17,7 @@ const LayOut = () => {
 
 const App = () => {
   return (
-    <useDbData>
+    <UseDbData>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<LayOut />}>
@@ -26,7 +26,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </useDbData>
+    </UseDbData>
   )
 };
 

@@ -1,10 +1,10 @@
 //data/index.js
 import { AuthContext, AuthProvider } from "./AuthContext";
-import {useDbData,DataContext} from "./useDbData";
+import { UseDbData, DataContext } from "./UseDbData";
 
 export{
     AuthContext,
     AuthProvider,
-    useDbData,
+    UseDbData,
     DataContext
 };

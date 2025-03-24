@@ -1,6 +1,6 @@
 import { useState, useEffect,useContext } from "react";
 import axios from "axios";
-import { useDbData } from "../../data";
+import { UseDbData } from "../../data";
 
 export const List = ({ inputData }) => {
     return (
@@ -21,7 +21,7 @@ export const List = ({ inputData }) => {
 
 const DbTest = () => {
 
-    // const {getDbdata}=useContext(useDbData());
+    // const {getDbdata}=useContext(UseDbData());
     const [listData, setListData] = useState([]);
     const [listData2, setListData2] = useState([]);
     
