@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "../../data";
 
-export const List = ({ user }) => {
+export const List = ({ user,func,task }) => {
     // if(!inputData.subject){
     //     return (
     //         <div className="wrap">
@@ -42,6 +42,9 @@ export const List = ({ user }) => {
     //     setTask(getUserTaskData(user.userId));
     // },[task]);
     // getUserTaskData(user.userId);
+    useEffect(()=>{
+        func(user.userId);
+    },[user]);
     return (
         <div className="wrap">
             <p>
@@ -54,6 +57,10 @@ export const List = ({ user }) => {
                 {user.username}
             </p>
             <hr />
+            <div>
+                <TaskList task={task}/>
+            </div>
+            <hr />
             {/* <p>
                 {task.subject}
             </p>
@@ -63,15 +70,13 @@ export const List = ({ user }) => {
             <p>
                 {task.created_at}
             </p> */}
-            <hr />
-            <hr />
         </div>
     )
 
 };
 
-export const TaskList = ({ userId, func, task }) => {
-    func(userId);
+export const TaskList = ({ task }) => {
+    console.log(task);
     return (
         <div className="wrap">
             <p>
@@ -92,7 +97,7 @@ const DbTest = () => {
     const { userData, taskData, getUserTaskData } = useContext(DataContext);
     const [listData, setListData] = useState([]);
     const [listData2, setListData2] = useState([]);
-    console.log(userData);
+    // console.log(userData);
 
     // const conListData = async () => {
     //     try {
@@ -110,17 +115,19 @@ const DbTest = () => {
         <div className="data">
             <div className="row1">
                 {userData.map(data =>
-                    <div className="db_wapper"key={data.id}>
-                        <List user={data}/>
-                        {/* <TaskList userId={data.userId} func={getUserTaskData}task={taskData}/> */}
-                    </div>
+                    <List
+                        key={data.id} 
+                        user={data}
+                        func={getUserTaskData}
+                        task={taskData}
+                    />
                 )}
             </div>
-            <div className="row2">
+            {/* <div className="row2">
                 {taskData.map(data =>
                     <List key={data.id} user={data} />
                 )}
-            </div>
+            </div> */}
         </div>
     )
 };
