@@ -1,57 +1,124 @@
-import { useState, useEffect,useContext } from "react";
-import axios from "axios";
-import { UseDbData } from "../../data";
+import { useState, useEffect, useContext } from "react";
+import { DataContext } from "../../data";
 
-export const List = ({ inputData }) => {
+export const List = ({ user }) => {
+    // if(!inputData.subject){
+    //     return (
+    //         <div className="wrap">
+    //             <p>
+    //                 {inputData.userId}
+    //             </p>
+    //             <p>
+    //                 {inputData.nickname}
+    //             </p>
+    //             <p>
+    //                 {inputData.username}
+    //             </p>
+    //             <hr />
+    //         </div>
+    //     )
+    // }else{
+    //     return (
+    //         <div className="wrap">
+    //             <p>
+    //                 {inputData.subject}
+    //             </p>
+    //             <p>
+    //                 {inputData.memo}
+    //             </p>
+    //             <p>
+    //                 {inputData.userId}
+    //             </p>
+    //             <p>
+    //                 {inputData.created_at}
+    //             </p>
+    //             <hr />
+    //         </div>
+    //     )
+    // }
+    // console.log('fun',user);
+    // const[task,setTask]=useState([]);
+    // useEffect(()=>{
+    //     setTask(getUserTaskData(user.userId));
+    // },[task]);
+    // getUserTaskData(user.userId);
     return (
         <div className="wrap">
             <p>
-                {inputData.username}
+                {user.userId}
             </p>
             <p>
-                {inputData.nickname}
+                {user.nickname}
             </p>
             <p>
-                {inputData.userId}
+                {user.username}
             </p>
             <hr />
+            {/* <p>
+                {task.subject}
+            </p>
+            <p>
+                {task.memo}
+            </p>
+            <p>
+                {task.created_at}
+            </p> */}
+            <hr />
+            <hr />
+        </div>
+    )
+
+};
+
+export const TaskList = ({ userId, func, task }) => {
+    func(userId);
+    return (
+        <div className="wrap">
+            <p>
+                {task.subject}
+            </p>
+            <p>
+                {task.memo}
+            </p>
+            <p>
+                {task.created_at}
+            </p>
         </div>
     )
 };
 
 const DbTest = () => {
 
-    // const {getDbdata}=useContext(UseDbData());
+    const { userData, taskData, getUserTaskData } = useContext(DataContext);
     const [listData, setListData] = useState([]);
     const [listData2, setListData2] = useState([]);
-    
-    const conListData = async () => {
-        try {
-            const res = await axios.get("http://localhost:4000/users");
-            setListData(res.data);// console.log(res);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    console.log(userData);
 
-    
-    
-    useEffect(() => {
-        // setListData2(getDbdata());
-        conListData();
-        
-    }, []);
+    // const conListData = async () => {
+    //     try {
+    //         const res = await axios.get("http://localhost:4000/users");
+    //         setListData(res.data);// console.log(res);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
+    // useEffect(() => {
+    //     conListData();
+    // }, []);
 
     return (
         <div className="data">
             <div className="row1">
-                {listData.map(data =>
-                    <List key={data.id} inputData={data} />
+                {userData.map(data =>
+                    <div className="db_wapper"key={data.id}>
+                        <List user={data}/>
+                        {/* <TaskList userId={data.userId} func={getUserTaskData}task={taskData}/> */}
+                    </div>
                 )}
             </div>
             <div className="row2">
-                {listData2.map(data =>
-                    <List key={data.id} inputData={data} />
+                {taskData.map(data =>
+                    <List key={data.id} user={data} />
                 )}
             </div>
         </div>
@@ -59,15 +126,3 @@ const DbTest = () => {
 };
 
 export default DbTest;
-
-// 너가 알려준대로 적었지만, 여전히 Uncaught Error: Too many re-renders. React limits the number of renders to prevent an infinite loop 라는 에러만 띄우고 있어.
-
-
-
-// 참고로 이렇게 불러온 데이터는 
-
-//     const [listData2, setListData2] = useState([]);
-
-//     setListData2(useDbData());
-
-// 라는 코드로 상태변수에 저장하고 있어. 이 부분은 문제 없지?
