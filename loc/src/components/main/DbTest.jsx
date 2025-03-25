@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "../../data";
 
-export const List = ({ user,func,task }) => {
+const List = ({ user, func, task }) => {
     // if(!inputData.subject){
     //     return (
     //         <div className="wrap">
@@ -42,9 +42,11 @@ export const List = ({ user,func,task }) => {
     //     setTask(getUserTaskData(user.userId));
     // },[task]);
     // getUserTaskData(user.userId);
-    useEffect(()=>{
-        func(user.userId);
-    },[user]);
+    useEffect(() => {
+        // func(user.userId);
+
+        console.log('userId',user.userId);
+    }, []);
     return (
         <div className="wrap">
             <p>
@@ -57,9 +59,9 @@ export const List = ({ user,func,task }) => {
                 {user.username}
             </p>
             <hr />
-            <div>
-                <TaskList task={task}/>
-            </div>
+            {/* {task.map(data => */}
+                <TaskList key={user.id} task={task} func={func} userId={user.userId} />
+            {/* )} */}
             <hr />
             {/* <p>
                 {task.subject}
@@ -75,20 +77,24 @@ export const List = ({ user,func,task }) => {
 
 };
 
-export const TaskList = ({ task }) => {
-    console.log(task);
+const TaskList = ({ task, func, userId }) => {
+    console.log('1', task);
+    useEffect(() => {
+        func(userId);
+    }, [userId]);
+    // console.log('2', task);
+    const taskArr=task;
     return (
-        <div className="wrap">
-            <p>
-                {task.subject}
-            </p>
-            <p>
-                {task.memo}
-            </p>
-            <p>
-                {task.created_at}
-            </p>
-        </div>
+        <ul className="taskwrap">
+            {taskArr.map(data=>
+                <li key={data.id}>
+                    <p>{data.subject}</p>
+                    <p>{data.memo}</p>
+                    <p>{data.created_at}</p>
+                    <p>{data.done}</p>
+                </li>
+            )}
+        </ul>
     )
 };
 
@@ -98,7 +104,8 @@ const DbTest = () => {
     const [listData, setListData] = useState([]);
     const [listData2, setListData2] = useState([]);
     // console.log(userData);
-
+    const userIds = userData.map(data => data.userId);
+    // console.log(userIds);
     // const conListData = async () => {
     //     try {
     //         const res = await axios.get("http://localhost:4000/users");
@@ -116,7 +123,7 @@ const DbTest = () => {
             <div className="row1">
                 {userData.map(data =>
                     <List
-                        key={data.id} 
+                        key={data.id}
                         user={data}
                         func={getUserTaskData}
                         task={taskData}
