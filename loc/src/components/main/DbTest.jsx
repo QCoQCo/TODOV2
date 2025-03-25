@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "../../data";
+import MainCharts from "./MainCharts";
 
 const List = ({ user, func }) => {
     // if(!inputData.subject){
@@ -42,11 +43,23 @@ const List = ({ user, func }) => {
     //     setTask(getUserTaskData(user.userId));
     // },[task]);
     // getUserTaskData(user.userId);
-    useEffect(() => {
-        // func(user.userId);
+    // useEffect(() => {
+    //     // func(user.userId);
 
-        console.log('userId',user.userId);
-    }, []);
+    //     console.log('userId',user.userId);
+    // }, []);
+    const[task,setTask]=useState([]);
+    const[taskDone,setTaskDone]=useState([]);
+    useEffect(() => {
+        func(user.userId)
+            .then(data=>{
+                setTask(data);
+                console.log(JSON.stringify(data));//done만 가져오기
+                // setTaskDone(data.done);
+            }).catch(err=>{
+                console.error('데이터 가져오기 실패',err);
+            })
+    }, [func,user.userId]);
     return (
         <div className="wrap">
             <p>
@@ -59,8 +72,10 @@ const List = ({ user, func }) => {
                 {user.username}
             </p>
             <hr />
+            <MainCharts urid={user.userId}taskDone={user.username}/>
+            <hr />
             {/* {task.map(data => */}
-                <TaskList key={user.id} func={func} userId={user.userId} />
+                <TaskList key={user.id} func={func} task={task} />
             {/* )} */}
             <hr />
             {/* <p>
@@ -77,17 +92,9 @@ const List = ({ user, func }) => {
 
 };
 
-const TaskList = ({ func, userId }) => {
-    const[task,setTask]=useState([]);
+const TaskList = ({ func, task }) => {
     // console.log('1', [func(userId)]);
-    useEffect(() => {
-        func(userId)
-            .then(data=>{
-                setTask(data);
-            }).catch(err=>{
-                console.error('데이터 가져오기 실패',err);
-            })
-    }, [func,userId]);
+
     // console.log('2', task);
     // const taskArr=[func(userId)];
     return (
@@ -98,6 +105,7 @@ const TaskList = ({ func, userId }) => {
                     <p>{data.memo}</p>
                     <p>{data.created_at}</p>
                     <p>{data.done}</p>
+                    <hr />
                 </li>
             )}
         </ul>

@@ -1,6 +1,8 @@
 import ApexCharts from 'apexcharts';
 
-const MainCharts = ({ user }) => {
+const MainCharts = ({ urid, taskDone }) => {
+    // const chartSeries=taskDone.length;
+    console.log(taskDone);
     const options = {
         chart: {
             height: 300,
@@ -32,12 +34,14 @@ const MainCharts = ({ user }) => {
         stroke: {
             lineCap: "round",
         },
-        labels: ['sss']
+        labels: [`${urid}`]
     };
-
+    //컴포넌트 혹은 변수의 이름이 같음
+    const chart = new ApexCharts(document.querySelector(`#${urid}Chart`),options);
+    chart.render();
     return (
         <div className="MainCharts" >
-            <div className="userChart"></div>
+            <div id={`${urid}Chart`}></div>
         </div >
     )
 };
