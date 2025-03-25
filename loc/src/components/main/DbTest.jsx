@@ -54,8 +54,10 @@ const List = ({ user, func }) => {
         func(user.userId)
             .then(data=>{
                 setTask(data);
-                console.log(JSON.stringify(data));//done만 가져오기
-                // setTaskDone(data.done);
+                //done만 가져오기
+                //console.log(JSON.stringify(data));
+                setTaskDone(data.map(dod=>dod.done));
+                // console.log(taskDone);
             }).catch(err=>{
                 console.error('데이터 가져오기 실패',err);
             })
@@ -72,7 +74,7 @@ const List = ({ user, func }) => {
                 {user.username}
             </p>
             <hr />
-            <MainCharts urid={user.userId}taskDone={user.username}/>
+            <MainCharts urid={user.userId}taskDone={taskDone}/>
             <hr />
             {/* {task.map(data => */}
                 <TaskList key={user.id} func={func} task={task} />

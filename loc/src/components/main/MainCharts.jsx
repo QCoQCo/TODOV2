@@ -2,13 +2,20 @@ import ApexCharts from 'apexcharts';
 
 const MainCharts = ({ urid, taskDone }) => {
     // const chartSeries=taskDone.length;
-    console.log(taskDone);
+    console.log(urid,taskDone);
+
+    const LD=taskDone.length;
+    var c = 0;
+    taskDone.map(tt=>{if(tt)c++});
+    const rate=parseInt((c/LD)*100);
+    console.log(c,LD,rate);
+
     const options = {
         chart: {
             height: 300,
             type: "radialBar"
         },
-        series: [67],
+        series: [rate],
         plotOptions: {
             radialBar: {
                 hollow: {
@@ -24,7 +31,7 @@ const MainCharts = ({ urid, taskDone }) => {
                         fontSize: "13px"
                     },
                     value: {
-                        color: "#111",
+                        color: "#d60000",
                         fontSize: "30px",
                         show: true
                     }
@@ -37,11 +44,11 @@ const MainCharts = ({ urid, taskDone }) => {
         labels: [`${urid}`]
     };
     //컴포넌트 혹은 변수의 이름이 같음
-    const chart = new ApexCharts(document.querySelector(`#${urid}Chart`),options);
+    const chart = new ApexCharts(document.querySelector(`.${urid}`),options);
     chart.render();
     return (
         <div className="MainCharts" >
-            <div id={`${urid}Chart`}></div>
+            <div className={`Chart ${urid}`}></div>
         </div >
     )
 };
