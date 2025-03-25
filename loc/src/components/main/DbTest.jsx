@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "../../data";
 
-const List = ({ user, func, task }) => {
+const List = ({ user, func }) => {
     // if(!inputData.subject){
     //     return (
     //         <div className="wrap">
@@ -60,7 +60,7 @@ const List = ({ user, func, task }) => {
             </p>
             <hr />
             {/* {task.map(data => */}
-                <TaskList key={user.id} task={task} func={func} userId={user.userId} />
+                <TaskList key={user.id} func={func} userId={user.userId} />
             {/* )} */}
             <hr />
             {/* <p>
@@ -77,16 +77,22 @@ const List = ({ user, func, task }) => {
 
 };
 
-const TaskList = ({ task, func, userId }) => {
-    console.log('1', task);
+const TaskList = ({ func, userId }) => {
+    const[task,setTask]=useState([]);
+    // console.log('1', [func(userId)]);
     useEffect(() => {
-        func(userId);
-    }, [userId]);
+        func(userId)
+            .then(data=>{
+                setTask(data);
+            }).catch(err=>{
+                console.error('데이터 가져오기 실패',err);
+            })
+    }, [func,userId]);
     // console.log('2', task);
-    const taskArr=task;
+    // const taskArr=[func(userId)];
     return (
         <ul className="taskwrap">
-            {taskArr.map(data=>
+            {task.map(data=>
                 <li key={data.id}>
                     <p>{data.subject}</p>
                     <p>{data.memo}</p>
@@ -100,7 +106,7 @@ const TaskList = ({ task, func, userId }) => {
 
 const DbTest = () => {
 
-    const { userData, taskData, getUserTaskData } = useContext(DataContext);
+    const { userData, getUserTaskData } = useContext(DataContext);
     const [listData, setListData] = useState([]);
     const [listData2, setListData2] = useState([]);
     // console.log(userData);
@@ -126,7 +132,6 @@ const DbTest = () => {
                         key={data.id}
                         user={data}
                         func={getUserTaskData}
-                        task={taskData}
                     />
                 )}
             </div>

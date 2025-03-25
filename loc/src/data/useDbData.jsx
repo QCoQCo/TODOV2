@@ -28,17 +28,20 @@ export const UseDbData=({children})=>{
             const res=await axios.get("http://localhost:4000/userTask",{params:{userId}});
             if(res.status>=200&&res.status<300){
                 // const data=await res.json();
-                setTaskData(res.data);
+                // setTaskData(res.data);
+                // return JSON.stringify(res.data);
+                return res.data;
             }else{
                 console.error('검색실패');
-                setTaskData([]);
+                // setTaskData([]);
+                return[];
             }
             // const res=await axios.get("")
         }catch(error){
             console.log(error);
-            setTaskData([]);
+            // setTaskData([]);
+            return[];
         }
-
     };
 
     // useEffect(()=>{
@@ -51,7 +54,7 @@ export const UseDbData=({children})=>{
     // return loading?[]:memoizedDbData;
 
     return(
-        <DataContext.Provider value={{userData,taskData,getUserTaskData}}>
+        <DataContext.Provider value={{userData,getUserTaskData}}>
             {children}
         </DataContext.Provider>
     )

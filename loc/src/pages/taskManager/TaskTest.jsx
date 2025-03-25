@@ -13,7 +13,8 @@ const TaskTest=({userId})=>{
             const res=await axios.get("http://localhost:4000/userTask",{params:{userId}});
             if(res.status>=200&&res.status<300){
                 // const data=await res.json();
-                setTasks(res.data);//리턴문으로 바꾼다면?
+                //리턴문으로 바꾼다면?
+                setTasks(res.data);
             }else{
                 console.error('검색실패');
                 setTasks([]);
