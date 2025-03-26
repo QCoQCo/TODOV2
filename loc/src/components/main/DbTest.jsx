@@ -60,7 +60,7 @@ const List = ({ user, func }) => {
                 // console.log(taskDone);
             }).catch(err=>{
                 console.error('데이터 가져오기 실패',err);
-            })
+            });
     }, [func,user.userId]);
     return (
         <div className="wrap">
@@ -77,7 +77,7 @@ const List = ({ user, func }) => {
             <MainCharts urid={user.userId}taskDone={taskDone}/>
             <hr />
             {/* {task.map(data => */}
-                <TaskList key={user.id} func={func} task={task} />
+                <TaskList key={user.id} task={task} />
             {/* )} */}
             <hr />
             {/* <p>
@@ -94,7 +94,7 @@ const List = ({ user, func }) => {
 
 };
 
-const TaskList = ({ func, task }) => {
+const TaskList = ({ task }) => {
     // console.log('1', [func(userId)]);
 
     // console.log('2', task);
@@ -106,7 +106,7 @@ const TaskList = ({ func, task }) => {
                     <p>{data.subject}</p>
                     <p>{data.memo}</p>
                     <p>{data.created_at}</p>
-                    <p>{data.done}</p>
+                    <p>{data.done?"달성":"미달"}</p>
                     <hr />
                 </li>
             )}
@@ -120,7 +120,7 @@ const DbTest = () => {
     const [listData, setListData] = useState([]);
     const [listData2, setListData2] = useState([]);
     // console.log(userData);
-    const userIds = userData.map(data => data.userId);
+    // const userIds = userData.map(data => data.userId);
     // console.log(userIds);
     // const conListData = async () => {
     //     try {

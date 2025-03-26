@@ -1,18 +1,24 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse,faStopwatch,faBars } from '@fortawesome/free-solid-svg-icons';
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
+import { StopWatch } from '../stopwatch';
 import './Gnb.css';
 
 const Gnb = () => {
+    const[isStw,setIsStw]=useState(false);
+    const handleClickWatch=()=>{
+        setIsStw(!isStw);
+    };
     return (
         <nav className="Gnb">
             <div className="gnb-inner">
                 <div className="main-btn">
-                    <Link to={''}><FontAwesomeIcon icon={faHouse} alt="메인페이지 버튼" /></Link>
+                    <Link to={'/'}><FontAwesomeIcon icon={faHouse} alt="메인페이지 버튼" /></Link>
                 </div>
                 <div className="stop-watch">
-                    <Link><FontAwesomeIcon icon={faStopwatch} alt="스탑워치 버튼" /></Link>
+                    <a onClick={handleClickWatch}><FontAwesomeIcon icon={faStopwatch} alt="스탑워치 버튼" /></a>
                 </div>
                 <div className="addToDo">
                     <Link><FontAwesomeIcon icon={faSquarePlus} alt="목표추가 버튼" /></Link>
@@ -21,6 +27,7 @@ const Gnb = () => {
                     <Link><FontAwesomeIcon icon={faBars} alt="세팅버튼" /></Link>
                 </div>
             </div>
+            <StopWatch isStw={isStw} setIsStw={setIsStw} handleClickWatch={handleClickWatch}/>
         </nav>
     )
 };

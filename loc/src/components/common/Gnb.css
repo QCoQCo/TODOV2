@@ -20,3 +20,12 @@
     width: 25%;
     height: 48px;
 }
+/* .Gnb .gnb-inner .stop-watch button{
+    border: 0;
+    background-color: transparent;
+} */
+
+.Gnb .gnb-inner > div >a{
+    color: #a4ebff;
+    font-size: 24px;
+}

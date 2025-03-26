@@ -1,8 +1,9 @@
 import express from "express";
 import cors from 'cors';
 import db from "./config/db.js";
-import userRoute from './routes/user.js'
-import taskRoute from "./routes/task.js";
+// import userRoute from "./routes/user.js";
+// import taskRoute from "./routes/task.js";
+import {userRoute, taskRoute} from "./routes/index.js"; 
 // const express = require('express');
 const app = express();
 const appRouter=express.Router();

@@ -1,13 +1,13 @@
 import { useState, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../../data";
+import { DataContext } from "../../data";
 import './account.css';
 
 
 const Signup = ({ managerMD, setIdMd, setPwMd, handleClickUserModal }) => {
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
+    const { login } = useContext(DataContext);
 
     const idRef = useRef();
     const idErrRef = useRef();

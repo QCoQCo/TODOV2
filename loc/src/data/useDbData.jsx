@@ -5,7 +5,7 @@ export const DataContext=createContext();
 
 export const UseDbData=({children})=>{
     const[userData,setUserData]=useState([]);
-    const[taskData,setTaskData]=useState([]);
+    // const[taskData,setTaskData]=useState([]);
     // const[loading,setLoading]=useState(true);
     // useEffect(()=>{});
 
@@ -42,6 +42,13 @@ export const UseDbData=({children})=>{
             // setTaskData([]);
             return[];
         }
+    };
+
+    const login=()=>{
+
+    };
+    const logout=()=>{
+
     };
 
     // useEffect(()=>{
