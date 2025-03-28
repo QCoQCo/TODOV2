@@ -64,7 +64,7 @@ const StopWatch=({isStw,setIsStw})=>{
                 <p className='watch'>{timeFormmater(curTime-initTime+savedTime)}</p>
                 <p className="btn">
                     <button onClick={onRun}>{isRunning?'PAUSE':'PLAY'}</button>
-                    <button onClick={onStop}>STOP</button>
+                    <button onClick={onStop}>RESET</button>
                 </p>
             </div>
         </div>

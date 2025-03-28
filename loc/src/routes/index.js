@@ -1,3 +1,4 @@
 import AccountRoutes from "./AccountRoutes";
+import DbRoutes from "./DbRoutes";
 
-export {AccountRoutes};
+export {AccountRoutes,DbRoutes};

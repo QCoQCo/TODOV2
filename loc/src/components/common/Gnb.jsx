@@ -4,12 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse,faStopwatch,faBars } from '@fortawesome/free-solid-svg-icons';
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import { StopWatch } from '../stopwatch';
+import { SettingPage } from '../../pages/account';
 import './Gnb.css';
 
 const Gnb = () => {
     const[isStw,setIsStw]=useState(false);
+    const[isSetting,setIsSetting]=useState(false);
     const handleClickWatch=()=>{
         setIsStw(!isStw);
+    };
+    const handleClickSetting=()=>{
+        setIsSetting(!isSetting);
     };
     return (
         <nav className="Gnb">
@@ -21,12 +26,13 @@ const Gnb = () => {
                     <a onClick={handleClickWatch}><FontAwesomeIcon icon={faStopwatch} alt="스탑워치 버튼" /></a>
                 </div>
                 <div className="addToDo">
-                    <Link><FontAwesomeIcon icon={faSquarePlus} alt="목표추가 버튼" /></Link>
+                    <Link to={'/db/user-set'}><FontAwesomeIcon icon={faSquarePlus} alt="유저추가 버튼" /></Link>
                 </div>
                 <div className="setting-btn">
-                    <Link><FontAwesomeIcon icon={faBars} alt="세팅버튼" /></Link>
+                    <a onClick={handleClickSetting}><FontAwesomeIcon icon={faBars} alt="세팅버튼" /></a>
                 </div>
             </div>
+            <SettingPage isSetting={isSetting} setIsSetting={setIsSetting} handleClickSetting={handleClickSetting}/>
             <StopWatch isStw={isStw} setIsStw={setIsStw} handleClickWatch={handleClickWatch}/>
         </nav>
     )

@@ -43,6 +43,7 @@ const TaskTest=({userId})=>{
             <ul>
                 {tasks.map(data=>
                     <li key={data.id}>
+                        <hr/>
                         <p>
                             {data.subject}
                         </p>
@@ -55,7 +56,9 @@ const TaskTest=({userId})=>{
                         <p>
                             {data.created_at}
                         </p>
+                        <hr/>
                     </li>
+
                 )}
             </ul>
         </div>

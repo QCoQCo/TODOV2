@@ -1,22 +1,20 @@
-import { useState,useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ApexCharts from 'apexcharts';
 
 const MainCharts = ({ urid, taskDone }) => {
-    console.log(urid,taskDone);
-    // const chartSeries=taskDone.length;
-    // const[dataLenth,setDataLenth]=useState(0);
-    // const[count,setCount]=useState(0);
-    // const getRate=(L,td)=>{
-    //     var C=0;
-    //     td.map(tt=>{if(tt)C++});
+    const chartRef = useRef(null);
 
-    // };
-    useEffect(()=>{
-        const LD=taskDone.length;
+    useEffect(() => {
+        if (chartRef.current) {
+            chartRef.current.destroy();
+        }
+
+        if (taskDone.length == 0) return;
+
+        const LD = taskDone.length;
         var c = 0;
-        taskDone.map(tt=>{if(tt)c++});
-        const rate=(c?parseInt((c/LD)*100):0);
-        console.log(c,LD,rate);
+        taskDone.map(tt => { if (tt) c++ });
+        const rate = (c ? parseInt((c / LD) * 100) : 0);
 
         var options = {
             chart: {
@@ -24,8 +22,8 @@ const MainCharts = ({ urid, taskDone }) => {
                 type: 'radialBar',
             },
             series: [rate],
-            plotOptions:{
-                radialBar:{
+            plotOptions: {
+                radialBar: {
                     dataLabels: {
                         showOn: "always",
                         name: {
@@ -44,10 +42,16 @@ const MainCharts = ({ urid, taskDone }) => {
             },
             labels: [`${urid}`],
         };
-        
-        //컴포넌트 혹은 변수의 이름이 같음
-        new ApexCharts(document.querySelector(`.${urid}`),options).render();
-    },[taskDone,urid])
+
+        chartRef.current = new ApexCharts(document.querySelector(`.${urid}`), options);
+        chartRef.current.render();
+
+        return () => {
+            if (chartRef.current) {
+                chartRef.current.destroy();
+            }
+        }
+    }, [taskDone, urid])
     return (
         <div className="MainCharts" >
             <div className={`Chart ${urid}`}></div>

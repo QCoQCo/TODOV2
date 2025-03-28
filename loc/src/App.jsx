@@ -3,7 +3,7 @@ import { Outlet, BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Main } from './pages/main';
 import { AuthProvider,UseDbData } from './data';
 import { Header, Footer, Gnb } from './components/common';
-import { AccountRoutes } from './routes';
+import { AccountRoutes,DbRoutes } from './routes';
 import './App.css';
 
 const LayOut = ({title}) => {
@@ -26,8 +26,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<LayOut title={title}/>}>
-            <Route index element={<Main getPageName={getPageName}/>} />
+            <Route index element={<Main title={getPageName}/>} />
             <Route path='/account/*' element={<AccountRoutes />} />
+            <Route path='/db/*'element={<DbRoutes title={getPageName}/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

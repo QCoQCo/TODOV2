@@ -1,0 +1,28 @@
+.settings {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #111;
+    z-index: 800;
+    transition: width 1s;
+}
+
+.settings.view {
+    width: 90%;
+}
+
+.setting-inner {
+    padding: 65px 20px;
+    width: 1280px;
+}
+
+.setting-inner .dbView{
+    margin: 20px 20px;
+}
+.setting-inner .dbView p{
+    margin-bottom: 12px;
+}
+
