@@ -27,6 +27,8 @@ const UserSet=({title})=>{
     const getUserId=(data)=>{
         setUser(data);
     };
+    //다이어리를 참고 params
+    //
 
     return(
         <div className="UserSet">
