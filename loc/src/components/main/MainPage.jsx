@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { DataContext } from "../../data";
+import { DataContext,printDate } from "../../data";
 import MainCharts from "./MainCharts";
 
 const List = ({ user, func }) => {
@@ -31,7 +31,7 @@ const List = ({ user, func }) => {
             <hr />
             <MainCharts urid={user.userId}taskDone={taskDone}/>
             <hr />
-            <TaskList key={user.id} task={task} />
+            <TaskList key={user.id} task={task}/>
             <hr />
         </div>
     )
@@ -45,7 +45,7 @@ const TaskList = ({ task }) => {
                 <li key={data.id}>
                     <p>{data.subject}</p>
                     <p>{data.memo}</p>
-                    <p>{data.created_at}</p>
+                    <p>{printDate(data.created_at)}</p>
                     <p>{data.done?"달성":"미달"}</p>
                     <hr />
                 </li>
@@ -57,7 +57,11 @@ const TaskList = ({ task }) => {
 const MainPage = () => {
 
     const { userData, getUserTaskData } = useContext(DataContext);
-
+    try {
+        // console.log(printDate(new Date('')))
+    } catch (error) {
+        console.error(error)
+    }
     return (
         <div className="data">
             <div className="row1">

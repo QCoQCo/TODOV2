@@ -1,6 +1,6 @@
 import { useEffect,useContext,useState } from "react";
 import { useParams,Link } from "react-router-dom";
-import { DataContext } from "../../data";
+import { DataContext,printDate } from "../../data";
 import TaskAdd from "./TaskAdd";
 import MainCharts from "../../components/main/MainCharts";
 
@@ -102,7 +102,7 @@ const TaskSet=({title})=>{
                             </div>
                             <div className="created_at">
                                 <p>생성시간 : </p>
-                                <p>{it.created_at}</p>
+                                <p>{printDate(it.created_at)}</p>
                             </div>
                             <div className="done">
                                 <p>{it.done?'달성':'미달'}</p>

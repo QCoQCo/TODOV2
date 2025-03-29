@@ -9,6 +9,11 @@ export const UseDbData=({children})=>{
     // const[loading,setLoading]=useState(true);
     // useEffect(()=>{});
 
+    // const dateFormater=(date)=>{
+    //     const FM=`${date.getFullYear()}년 ${date.getMonth()+1}월 ${date.getDate()}일`;
+    //     return FM;
+    // };
+
     const getUserData=async()=>{
         try {
             const res=await axios.get("http://localhost:4000/users");

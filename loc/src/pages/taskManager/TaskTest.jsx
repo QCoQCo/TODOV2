@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react";
+import { printDate } from "../../data";
 import axios from "axios";
 
 const TaskTest=({userId})=>{
@@ -54,7 +55,7 @@ const TaskTest=({userId})=>{
                             {data.userId}
                         </p>
                         <p>
-                            {data.created_at}
+                            {printDate(data.created_at)}
                         </p>
                         <hr/>
                     </li>
