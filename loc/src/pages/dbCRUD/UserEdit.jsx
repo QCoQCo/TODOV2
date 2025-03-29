@@ -1,9 +1,8 @@
 import { useEffect,useState,useContext } from "react";
-import { useParams,Navigate, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { DataContext } from "../../data";
 
 const UserEdit=({ title })=>{
-    const navigation=useNavigate();
     const{getSpecificUsser}=useContext(DataContext);
     const{userId}=useParams();
     useEffect(()=>{

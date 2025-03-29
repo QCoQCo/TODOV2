@@ -45,14 +45,26 @@ const UserSet=({title})=>{
                 <ul>
                     {userData.map(data=>
                         <li key={data.id}>
-                            <p className="id">{data.userId}</p>
-                            <p className="nick">{data.nickname}</p>
-                            <p className="name">{data.username}</p>
-                            <p className="user-btn">
+                            <div className="user-info">
+                                <div className="userId">
+                                    <p>아이디 : </p>
+                                    <p>{data.userId}</p>
+                                </div>
+                                <div className="nickname">
+                                    <p>닉네임 : </p>
+                                    <p>{data.nickname}</p>
+                                </div>
+                                <div className="realname">
+                                    <p>이름 : </p>
+                                    <p>{data.username}</p>
+                                </div>
+                            </div>
+
+                            <div className="main-btn">
                                 <Link to={`/db/user-edit/${data.userId}`}>UPDATE</Link>
                                 <button onClick={()=>onDelete(data.id)}>DELETE</button>
                                 <Link to={`/db/task-set/${data.userId}`}>TASK MOD</Link>
-                            </p>
+                            </div>
                         </li>
                     )}
                 </ul>

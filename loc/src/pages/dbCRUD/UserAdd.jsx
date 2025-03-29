@@ -38,7 +38,7 @@ const UserAdd=({onSubmit})=>{
         <div className="UserAdd">
             <div className="form-inner">
                 <p>
-                    <label htmlFor="username">이름</label>
+                    <label htmlFor="username">이름 </label>
                     <input
                         type="text"
                         id="username"
@@ -47,7 +47,7 @@ const UserAdd=({onSubmit})=>{
                     />
                 </p>
                 <p>
-                    <label htmlFor="usernick">닉네임</label>
+                    <label htmlFor="usernick">닉네임 </label>
                     <input
                         type="text"
                         id="usernick"
@@ -56,7 +56,7 @@ const UserAdd=({onSubmit})=>{
                     />
                 </p>
                 <p>
-                    <label htmlFor="userId">아이디</label>
+                    <label htmlFor="userId">아이디 </label>
                     <input
                         type="text"
                         id="userId"
@@ -65,7 +65,7 @@ const UserAdd=({onSubmit})=>{
                     />
                 </p>
                 <p>
-                    <label htmlFor="password">비밀번호</label>
+                    <label htmlFor="password">비밀번호 </label>
                     <input
                         type="text"
                         id="password"
@@ -74,7 +74,7 @@ const UserAdd=({onSubmit})=>{
                     />
                 </p>
                 <p>
-                    <label htmlFor="email">이메일</label>
+                    <label htmlFor="email">이메일 </label>
                     <input
                         type="text"
                         id="email"
@@ -83,9 +83,9 @@ const UserAdd=({onSubmit})=>{
                     />
                 </p>
             </div>
-            <p className="submit">
+            <div className="submit">
                 <button onClick={onClickSubmit}>SUBMIT</button>
-            </p>
+            </div>
         </div>
     )
 };

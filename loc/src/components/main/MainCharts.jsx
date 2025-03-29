@@ -9,7 +9,7 @@ const MainCharts = ({ urid, taskDone }) => {
             chartRef.current.destroy();
         }
 
-        if (taskDone.length == 0) return;
+        // if (taskDone.length == 0) return;
 
         const LD = taskDone.length;
         var c = 0;
