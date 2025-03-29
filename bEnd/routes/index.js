@@ -1,4 +1,5 @@
 import userRoute from "./user.js";
 import taskRoute from "./task.js";
+import getUserRoute from "./getUser.js";
 
-export {userRoute,taskRoute};
+export {userRoute,taskRoute,getUserRoute};

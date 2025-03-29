@@ -23,6 +23,26 @@ export const UseDbData=({children})=>{
         //     console.log(error);
         // }
     };
+    const getSpecificUsser=async(userId)=>{
+        try {
+            const res=await axios.get("http://localhost:4000/getUser",{params:{userId}});
+            if(res.status>=200&&res.status<300){
+                // const data=await res.json();
+                // setTaskData(res.data);
+                // return JSON.stringify(res.data);
+                return res.data;
+            }else{
+                console.error('검색실패');
+                // setTaskData([]);
+                return[];
+            }
+            // const res=await axios.get("")
+        }catch(error){
+            console.log(error);
+            // setTaskData([]);
+            return[];
+        }
+    };
     const getUserTaskData=async(userId)=>{
         try {
             const res=await axios.get("http://localhost:4000/userTask",{params:{userId}});
@@ -61,7 +81,7 @@ export const UseDbData=({children})=>{
     // return loading?[]:memoizedDbData;
 
     return(
-        <DataContext.Provider value={{userData,getUserTaskData}}>
+        <DataContext.Provider value={{userData,getSpecificUsser,getUserTaskData}}>
             {children}
         </DataContext.Provider>
     )

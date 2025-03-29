@@ -3,7 +3,7 @@ import cors from 'cors';
 import db from "./config/db.js";
 // import userRoute from "./routes/user.js";
 // import taskRoute from "./routes/task.js";
-import {userRoute, taskRoute} from "./routes/index.js"; 
+import {userRoute, taskRoute, getUserRoute} from "./routes/index.js"; 
 // const express = require('express');
 const app = express();
 const appRouter=express.Router();
@@ -16,6 +16,7 @@ app.use(cors());
 // appRouter.use(cors());
 app.use(userRoute);
 app.use(taskRoute);
+app.use(getUserRoute);
 
 
 // app.post("/tasks",(req,res)=>{

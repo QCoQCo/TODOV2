@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect,useState,useContext } from "react";
+import { useParams,Navigate, useNavigate } from "react-router-dom";
+import { DataContext } from "../../data";
 
-const UserAdd=({onSubmit})=>{
+const UserEdit=({ title })=>{
+    const navigation=useNavigate();
+    const{getSpecificUsser}=useContext(DataContext);
+    const{userId}=useParams();
+    useEffect(()=>{
+        title(userId);
+    });
     const[username,setUsername]=useState('');
     const[nickname,setNickname]=useState('');
-    const[userId,setUserId]=useState('');
     const[password,setPassword]=useState('');
     const[email,setEmail]=useState('');
 
@@ -13,9 +20,6 @@ const UserAdd=({onSubmit})=>{
     const onChangeNick=(e)=>{
         setNickname(e.target.value);
     };
-    const onChangeId=(e)=>{
-        setUserId(e.target.value);
-    };
     const onChangePw=(e)=>{
         setPassword(e.target.value);
     };
@@ -23,19 +27,41 @@ const UserAdd=({onSubmit})=>{
         setEmail(e.target.value);
     };
     
+    const[user,setUser]=useState({});
+    useEffect(()=>{
+        getSpecificUsser(userId)
+            .then(data=>
+                setUser(data[0])
+            ).catch(err=>console.error('데이터 가져오기 실패',err));
+    },[getSpecificUsser, userId]);
+
+    // useEffect(()=>{
+    //     setUsername(user.username);
+    //     setNickname(user.nickname);
+    //     setPassword(user.password);
+    //     setEmail(user.email);
+    // },[user])
+
     const onClickSubmit=()=>{
         const userFM={
-            username,
-            nickname,
+            username:username?username:user.username,
+            nickname:nickname?nickname:user.nickname,
             userId,
-            password,
-            email
+            password:password?password:user.password,
+            email:email?email:user.email
         };
-        onSubmit(userFM);
+
+        fetch('http://localhost:4000/users',{
+            method:'PUT',
+            headers: { 'Content-Type': 'application/json;charset=utf-8' },
+            body: JSON.stringify(userFM),
+        }).then(res=>res.json).then(data=>console.log(data));
+        // navigation('/db/user-set');
+        window.location.replace('/db/user-set');
     };
 
     return(
-        <div className="UserAdd">
+        <div className="UserEdit">
             <div className="form-inner">
                 <p>
                     <label htmlFor="username">이름</label>
@@ -43,6 +69,7 @@ const UserAdd=({onSubmit})=>{
                         type="text"
                         id="username"
                         value={username}
+                        placeholder={user.username}
                         onChange={onChangeName}
                     />
                 </p>
@@ -52,17 +79,12 @@ const UserAdd=({onSubmit})=>{
                         type="text"
                         id="usernick"
                         value={nickname}
+                        placeholder={user.nickname}
                         onChange={onChangeNick}
                     />
                 </p>
                 <p>
-                    <label htmlFor="userId">아이디</label>
-                    <input
-                        type="text"
-                        id="userId"
-                        value={userId}
-                        onChange={onChangeId}
-                    />
+                    <label htmlFor="userId">아이디 {userId}</label>
                 </p>
                 <p>
                     <label htmlFor="password">비밀번호</label>
@@ -70,6 +92,7 @@ const UserAdd=({onSubmit})=>{
                         type="text"
                         id="password"
                         value={password}
+                        placeholder={user.password}
                         onChange={onChangePw}
                     />
                 </p>
@@ -79,6 +102,7 @@ const UserAdd=({onSubmit})=>{
                         type="text"
                         id="email"
                         value={email}
+                        placeholder={user.email}
                         onChange={onChangeEmail}
                     />
                 </p>
@@ -90,4 +114,4 @@ const UserAdd=({onSubmit})=>{
     )
 };
 
-export default UserAdd;
+export default UserEdit;

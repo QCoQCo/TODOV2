@@ -117,8 +117,8 @@ const TaskList = ({ task }) => {
 const DbTest = () => {
 
     const { userData, getUserTaskData } = useContext(DataContext);
-    const [listData, setListData] = useState([]);
-    const [listData2, setListData2] = useState([]);
+    // const [listData, setListData] = useState([]);
+    // const [listData2, setListData2] = useState([]);
     // console.log(userData);
     // const userIds = userData.map(data => data.userId);
     // console.log(userIds);

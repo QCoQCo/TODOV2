@@ -5,14 +5,24 @@ import UserAdd from "./UserAdd";
 
 const UserSet=({title})=>{
     useEffect(()=>{
+        // window.location.reload();
         title('USER MOD');
     });
     const{userData}=useContext(DataContext);
     const[isAdd,setIsAdd]=useState(false);
-    const[user,setUser]=useState('');
+    // const[user,setUser]=useState('');
     
     const AddComp=()=>{
         setIsAdd(!isAdd);
+    };
+
+    const onDelete=(id)=>{
+        fetch('http://localhost:4000/users',{
+            method:'DELETE',
+            headers: { 'Content-Type': 'application/json;charset=utf-8' },
+            body:JSON.stringify({id})
+        }).then(res=>res.json).then(data=>console.log(data));
+        window.location.reload();
     };
 
     const onSubmit=(data)=>{
@@ -22,11 +32,10 @@ const UserSet=({title})=>{
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(data),
         }).then(res=>res.json).then(data=>console.log(data));
+        window.location.reload();
     };
     
-    const getUserId=(data)=>{
-        setUser(data);
-    };
+
     //다이어리를 참고 params
     //
 
@@ -40,9 +49,9 @@ const UserSet=({title})=>{
                             <p className="nick">{data.nickname}</p>
                             <p className="name">{data.username}</p>
                             <p className="user-btn">
-                                <button>UPDATE</button>
-                                <button>DELETE</button>
-                                <Link to={'/db/task-set'} user={user} >TASK MOD</Link>
+                                <Link to={`/db/user-edit/${data.userId}`}>UPDATE</Link>
+                                <button onClick={()=>onDelete(data.id)}>DELETE</button>
+                                <Link to={`/db/task-set/${data.userId}`}>TASK MOD</Link>
                             </p>
                         </li>
                     )}
