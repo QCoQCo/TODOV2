@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './form-inner.css';
 
 const TaskAdd=({onSubmit,userId})=>{
     const[subject,setSubject]=useState('');
@@ -20,32 +21,34 @@ const TaskAdd=({onSubmit,userId})=>{
     };
     return(
         <div className="TaskAdd">
-            <div className="form-inner">
-                <p>
-                    <label htmlFor="subject">subject </label>
-                    <input
-                        type="text"
-                        id="subject"
-                        value={subject}
-                        onChange={onChangeSubject}
-                    />
-                </p>
-                <p>
-                    <label htmlFor="memo">memo </label>
-                    <input
-                        type="text"
-                        id="memo"
-                        value={memo}
-                        onChange={onChangeMemo}
-                    />
-                </p>
-                <div className="userId">
-                    <p>userid : </p>
-                    <p>{userId}</p>
+            <div className="wrapper">
+                <div className="form-inner">
+                    <div>
+                        <label htmlFor="subject">subject </label>
+                        <input
+                            type="text"
+                            id="subject"
+                            value={subject}
+                            onChange={onChangeSubject}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="memo">memo </label>
+                        <input
+                            type="text"
+                            id="memo"
+                            value={memo}
+                            onChange={onChangeMemo}
+                        />
+                    </div>
+                    <div className="userId">
+                        <p>userid : </p>
+                        <p>{userId}</p>
+                    </div>
                 </div>
-            </div>
-            <div className="submit">
-                <button onClick={onClickSubmit}>SUBMIT</button>
+                <div className="submit">
+                    <button onClick={onClickSubmit}>SUBMIT</button>
+                </div>
             </div>
         </div>
     )

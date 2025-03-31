@@ -19,7 +19,7 @@ const Gnb = () => {
     return (
         <nav className="Gnb">
             <div className="gnb-inner">
-                <div className="main-btn">
+                <div className="mainP-btn">
                     <Link to={'/'}><FontAwesomeIcon icon={faHouse} alt="메인페이지 버튼" /></Link>
                 </div>
                 <div className="stop-watch">

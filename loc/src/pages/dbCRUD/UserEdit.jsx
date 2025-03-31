@@ -1,6 +1,7 @@
 import { useEffect,useState,useContext } from "react";
 import { useParams } from "react-router-dom";
 import { DataContext } from "../../data";
+import './form-inner.css';
 
 const UserEdit=({ title })=>{
     const{getSpecificUsser}=useContext(DataContext);
@@ -61,54 +62,56 @@ const UserEdit=({ title })=>{
 
     return(
         <div className="UserEdit">
-            <div className="form-inner">
-                <p>
-                    <label htmlFor="username">이름</label>
-                    <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        placeholder={user.username}
-                        onChange={onChangeName}
-                    />
-                </p>
-                <p>
-                    <label htmlFor="usernick">닉네임</label>
-                    <input
-                        type="text"
-                        id="usernick"
-                        value={nickname}
-                        placeholder={user.nickname}
-                        onChange={onChangeNick}
-                    />
-                </p>
-                <p>
-                    <label htmlFor="userId">아이디 {userId}</label>
-                </p>
-                <p>
-                    <label htmlFor="password">비밀번호</label>
-                    <input
-                        type="text"
-                        id="password"
-                        value={password}
-                        placeholder={user.password}
-                        onChange={onChangePw}
-                    />
-                </p>
-                <p>
-                    <label htmlFor="email">이메일</label>
-                    <input
-                        type="text"
-                        id="email"
-                        value={email}
-                        placeholder={user.email}
-                        onChange={onChangeEmail}
-                    />
-                </p>
+            <div className="wrapper">
+                <div className="form-inner">
+                    <div>
+                        <label htmlFor="username">이름</label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={username}
+                            placeholder={user.username}
+                            onChange={onChangeName}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="usernick">닉네임</label>
+                        <input
+                            type="text"
+                            id="usernick"
+                            value={nickname}
+                            placeholder={user.nickname}
+                            onChange={onChangeNick}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="userId">아이디 {userId}</label>
+                    </div>
+                    <div>
+                        <label htmlFor="password">비밀번호</label>
+                        <input
+                            type="text"
+                            id="password"
+                            value={password}
+                            placeholder={user.password}
+                            onChange={onChangePw}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="email">이메일</label>
+                        <input
+                            type="text"
+                            id="email"
+                            value={email}
+                            placeholder={user.email}
+                            onChange={onChangeEmail}
+                        />
+                    </div>
+                </div>
+                <div className="submit">
+                    <button onClick={onClickSubmit}>SUBMIT</button>
+                </div>
             </div>
-            <p className="submit">
-                <button onClick={onClickSubmit}>SUBMIT</button>
-            </p>
         </div>
     )
 };

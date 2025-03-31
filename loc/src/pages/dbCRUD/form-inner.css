@@ -1,0 +1,53 @@
+/* UserAdd, UserEdit, TaskAdd, TaskEdit 페이지 */
+/* .form-inner{
+    margin: 0 auto;
+} */
+
+.form-inner > div{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+/* UserSet, TaskSet 공통 */
+
+.user-info > div {
+    display: flex;
+}
+
+.main-btn a, .main-btn button, .add-btn button{
+    color: #a4ebff;
+    border: 1px solid #a4ebff;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 6px;
+    background-color: #000;
+}
+
+.userList > ul > li,
+.taskList ul > li{
+    border: 1px solid #ccc;
+    text-align: center;
+    /* margin-bottom: 12px; */
+    margin: 12px;
+}
+
+/* UserSet 페이지 */
+/* .userList{
+    width: 1440px;
+    margin: 0 auto;
+} */
+
+.userList .user-info > div {
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+/* TaskSet 페이지 */
+
+.taskList ul > li > div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+

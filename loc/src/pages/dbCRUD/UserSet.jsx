@@ -2,6 +2,7 @@ import { useEffect,useContext,useState } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../data";
 import UserAdd from "./UserAdd";
+import './form-inner.css';
 
 const UserSet=({title})=>{
     useEffect(()=>{
@@ -41,38 +42,40 @@ const UserSet=({title})=>{
 
     return(
         <div className="UserSet">
-            <div className="userList">
-                <ul>
-                    {userData.map(data=>
-                        <li key={data.id}>
-                            <div className="user-info">
-                                <div className="userId">
-                                    <p>아이디 : </p>
-                                    <p>{data.userId}</p>
+            <div className="wrapper">
+                <div className="userList">
+                    <ul>
+                        {userData.map(data=>
+                            <li key={data.id}>
+                                <div className="user-info">
+                                    <div className="userId">
+                                        <p>아이디 : </p>
+                                        <p>{data.userId}</p>
+                                    </div>
+                                    <div className="nickname">
+                                        <p>닉네임 : </p>
+                                        <p>{data.nickname}</p>
+                                    </div>
+                                    <div className="realname">
+                                        <p>이름 : </p>
+                                        <p>{data.username}</p>
+                                    </div>
                                 </div>
-                                <div className="nickname">
-                                    <p>닉네임 : </p>
-                                    <p>{data.nickname}</p>
-                                </div>
-                                <div className="realname">
-                                    <p>이름 : </p>
-                                    <p>{data.username}</p>
-                                </div>
-                            </div>
 
-                            <div className="main-btn">
-                                <Link to={`/db/user-edit/${data.userId}`}>UPDATE</Link>
-                                <button onClick={()=>onDelete(data.id)}>DELETE</button>
-                                <Link to={`/db/task-set/${data.userId}`}>TASK MOD</Link>
-                            </div>
-                        </li>
-                    )}
-                </ul>
+                                <div className="main-btn">
+                                    <Link to={`/db/user-edit/${data.userId}`}>UPDATE</Link>
+                                    <button onClick={()=>onDelete(data.id)}>DELETE</button>
+                                    <Link to={`/db/task-set/${data.userId}`}>TASK MOD</Link>
+                                </div>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+                <p className="add-btn">
+                    <button onClick={AddComp}>ADD USER</button>
+                </p>
+                {isAdd&&<UserAdd onSubmit={onSubmit}/>}
             </div>
-            <p className="add-btn">
-                <button onClick={AddComp}>ADD USER</button>
-            </p>
-            {isAdd&&<UserAdd onSubmit={onSubmit}/>}
         </div>
     )
 };

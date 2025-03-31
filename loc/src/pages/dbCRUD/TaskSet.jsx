@@ -3,6 +3,7 @@ import { useParams,Link } from "react-router-dom";
 import { DataContext,printDate } from "../../data";
 import TaskAdd from "./TaskAdd";
 import MainCharts from "../../components/main/MainCharts";
+import './form-inner.css';
 
 const TaskSet=({title})=>{
     const{getUserTaskData,getSpecificUsser}=useContext(DataContext)
@@ -116,7 +117,7 @@ const TaskSet=({title})=>{
                     )}
                 </ul>
                 <p className="add-btn">
-                    <button onClick={AddComp}>ADD</button>
+                    <button onClick={AddComp}>ADD TASK</button>
                 </p>
                 {isAdd&&<TaskAdd onSubmit={onSubmit} userId={userId}/>}
             </div>
