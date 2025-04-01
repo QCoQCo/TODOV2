@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserMng } from '../../pages/account';
 import './Header.css';
 
-const Header = ({title}) => {
+const Header = ({ title }) => {
     const [managerMD, setManagerMD] = useState(false);
 
     const handleClickUserModal = () => {
@@ -20,7 +20,7 @@ const Header = ({title}) => {
                     <p><span>{title}</span></p>
                 </div>
                 <div className="md-btn" onClick={handleClickUserModal}>
-                    <img src="/assets/images/user-setting-btn.png" alt="user-manager" />
+                    <img src="/assets/images/user-login.png" alt="user-manager" />
                 </div>
             </div>
             {managerMD && <UserMng managerMD={managerMD} handleClickUserModal={handleClickUserModal} />}

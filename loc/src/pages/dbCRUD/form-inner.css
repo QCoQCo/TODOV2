@@ -3,32 +3,58 @@
     margin: 0 auto;
 } */
 
-.form-inner > div{
+.form-inner>div {
     display: flex;
     margin-bottom: 10px;
 }
 
+.wrapper {
+    padding: 16px;
+    background-color: #eee;
+}
+
 /* UserSet, TaskSet 공통 */
 
-.user-info > div {
+.user-info>div {
     display: flex;
 }
 
-.main-btn a, .main-btn button, .add-btn button{
-    color: #a4ebff;
-    border: 1px solid #a4ebff;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 6px;
-    background-color: #000;
+.main-btn {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-bottom: 24px;
 }
 
-.userList > ul > li,
-.taskList ul > li{
-    border: 1px solid #ccc;
+.main-btn a,
+.main-btn button,
+.add-btn button {
+    display: block;
+    width: 28%;
+    height: 42px;
+    line-height: 40px;
+    color: #555;
+    border-radius: 8px;
+    padding: 0;
+    background-color: #ddd;
     text-align: center;
-    /* margin-bottom: 12px; */
-    margin: 12px;
+}
+
+.add-btn {
+    padding: 12px 0;
+}
+
+.add-btn button {
+    background-color: #111;
+    color: #a4ebff;
+    margin-left: auto;
+}
+
+.userList>ul>li,
+.taskList ul>li {
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
 /* UserSet 페이지 */
@@ -37,17 +63,23 @@
     margin: 0 auto;
 } */
 
-.userList .user-info > div {
-    width: 200px;
-    margin: 0 auto;
-    margin-bottom: 10px;
+.userList .user-info {
+    padding: 16px;
+}
+
+.userList .user-info>div {
+    padding: 4px 0;
+}
+
+.userList .user-info div p:nth-child(1) {
+    width: 80px;
+    color: #555;
 }
 
 /* TaskSet 페이지 */
 
-.taskList ul > li > div{
+.taskList ul>li>div {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
-

@@ -1,12 +1,12 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import TaskTest from "./TaskTest";
 
 
-const TaskManager=()=>{
-    const[userId,setUserId]=useState('');
+const TaskManager = () => {
+    const [userId, setUserId] = useState('');
 
-    const testInput=(e)=>{
+    const testInput = (e) => {
         setUserId(e.target.value);
     };
     // useEffect(()=>{
@@ -14,15 +14,14 @@ const TaskManager=()=>{
     //         await axios.get("http://localhost:4000/task");
     //     };
     // });
-    
 
-    return(
+
+    return (
         <div className="taskManager">
             <h1>할일 목록</h1>
             <div className="testInput">
-                <p>유저의 아이디를 입력</p>
-                <input type="text" value={userId} onChange={testInput}/>
-                <TaskTest userId={userId}/>
+                <p className="input-box"><input type="text" value={userId} onChange={testInput} placeholder="사용자 아이디를 입력해주세요." /></p>
+                <TaskTest userId={userId} />
             </div>
         </div>
     )

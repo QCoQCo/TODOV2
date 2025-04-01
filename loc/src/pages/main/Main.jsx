@@ -1,16 +1,17 @@
 import { useEffect } from "react";
-import { DbTest,MainPage } from "../../components/main";
+import { DbTest, MainPage } from "../../components/main";
 import TaskManager from "../taskManager/TaskManager";
+import './Main.css';
 
-const Main=({title})=>{
-    useEffect(()=>{
+const Main = ({ title }) => {
+    useEffect(() => {
         title('MANAGE');
     });
-    return(
+    return (
         <div className="Main">
-            <MainPage/>
+            <MainPage />
             {/* <DbTest/> */}
-            <TaskManager/>
+            <TaskManager />
         </div>
     )
 };
