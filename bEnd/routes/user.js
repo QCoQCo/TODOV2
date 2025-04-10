@@ -11,7 +11,7 @@ userRoute.get('/users',async(req,res)=>{
         return res.json(data);
     } catch (err) {
         res.status(500).json({ error: '데이터베이스 오류가 발생했습니다.' });
-        return res.json(error);
+        return res.json(err);
     }
 });
 

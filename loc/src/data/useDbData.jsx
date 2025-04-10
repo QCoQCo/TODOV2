@@ -89,11 +89,34 @@ export const UseDbData=({children})=>{
         }
     };
 
-    const login=()=>{
-
+    const login=async(userId,password)=>{
+        try {
+            const res=await axios.post("http://localhost:4000/login",{
+                userId,
+                password
+            });
+            if(res.status>=200&&res.status<300){
+                return res.data;
+            }else{
+                console.error('로그인실패');
+                return[];
+            }
+        } catch (error) {
+            console.log(error);
+        }
     };
-    const logout=()=>{
-
+    const logout=async()=>{
+        try {
+            const res=await axios.post("http://localhost:4000/logout");
+            if(res.status>=200&&res.status<300){
+                return res.data;
+            }else{
+                console.error('로그아웃실패');
+                return[];
+            }
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     // useEffect(()=>{
@@ -106,7 +129,7 @@ export const UseDbData=({children})=>{
     // return loading?[]:memoizedDbData;
 
     return(
-        <DataContext.Provider value={{userData,getSpecificUsser,getSpecificTask,getUserTaskData}}>
+        <DataContext.Provider value={{userData,getSpecificUsser,getSpecificTask,getUserTaskData,login,logout}}>
             {children}
         </DataContext.Provider>
     )
