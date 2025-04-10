@@ -13,6 +13,7 @@
     height: 68px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 24px;
     margin: 0 auto;
     box-sizing: border-box;
@@ -20,7 +21,7 @@
 
 .header .header-inner .logo {
     width: 40px;
-    padding-top: 16px;
+    padding-top: 4px;
 }
 
 .header .header-inner .logo img {
@@ -38,7 +39,7 @@
 
 .header .header-inner .md-btn {
     width: 32px;
-    padding-top: 16px;
+    padding-top: 4px;
 }
 
 .header .header-inner .md-btn img {

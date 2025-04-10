@@ -1,27 +1,27 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { printDate } from "../../data";
 import axios from "axios";
 
-const TaskTest=({userId})=>{
+const TaskTest = ({ userId }) => {
     // 유저 아이디별로 할일목록을 출력하려 했으나 userId를 백엔드로 옮기는 방법을 모름
     //SELECT * FROM tasks WHERE userId=(?)
     // 내일 다시시도
     //AxiosError{message: 'Request failed with status code 404', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {…}, request: XMLHttpRequest,}
-    const[tasks,setTasks]=useState([]);
+    const [tasks, setTasks] = useState([]);
 
-    const getTaskData=async()=>{
+    const getTaskData = async () => {
         try {
-            const res=await axios.get("http://localhost:4000/userTask",{params:{userId}});
-            if(res.status>=200&&res.status<300){
+            const res = await axios.get("http://localhost:4000/userTask", { params: { userId } });
+            if (res.status >= 200 && res.status < 300) {
                 // const data=await res.json();
                 //리턴문으로 바꾼다면?
                 setTasks(res.data);
-            }else{
+            } else {
                 console.error('검색실패');
                 setTasks([]);
             }
             // const res=await axios.get("")
-        }catch(error){
+        } catch (error) {
             console.log(error);
             setTasks([]);
         }
@@ -38,30 +38,34 @@ const TaskTest=({userId})=>{
     //     getTaskData();
     // };
 
-    return(
-        <div>
-            <button onClick={getTaskData}>유저검색</button>
-            <ul>
-                {tasks.map(data=>
-                    <li key={data.id}>
-                        <hr/>
-                        <p>
-                            {data.subject}
-                        </p>
-                        <p>
-                            {data.memo}
-                        </p>
-                        <p>
-                            {data.userId}
-                        </p>
-                        <p>
-                            {printDate(data.created_at)}
-                        </p>
-                        <hr/>
-                    </li>
+    return (
+        <div className="task-test">
+            <button className="btn-search-user" onClick={getTaskData}>유저검색</button>
+            <div className="task">
+                <ul className="task-list">
+                    {tasks.map(data =>
+                        <li key={data.id}>
+                            <div>
+                                <p>
+                                    {data.subject}
+                                </p>
+                                <p>
+                                    {data.memo}
+                                </p>
+                            </div>
+                            <div className="row2">
+                                <p>
+                                    {data.userId}
+                                </p>
+                                <p>
+                                    {printDate(data.created_at)}
+                                </p>
+                            </div>
+                        </li>
 
-                )}
-            </ul>
+                    )}
+                </ul>
+            </div>
         </div>
     )
 };

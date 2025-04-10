@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse,faStopwatch,faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faStopwatch, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import { StopWatch } from '../stopwatch';
 import { SettingPage } from '../../pages/account';
 import './Gnb.css';
 
 const Gnb = () => {
-    const[isStw,setIsStw]=useState(false);
-    const[isSetting,setIsSetting]=useState(false);
-    const handleClickWatch=()=>{
+    const [isStw, setIsStw] = useState(false);
+    const [isSetting, setIsSetting] = useState(false);
+    const handleClickWatch = () => {
         setIsStw(!isStw);
     };
-    const handleClickSetting=()=>{
+    const handleClickSetting = () => {
         setIsSetting(!isSetting);
     };
     return (
@@ -32,8 +32,8 @@ const Gnb = () => {
                     <a onClick={handleClickSetting}><FontAwesomeIcon icon={faBars} alt="세팅버튼" /></a>
                 </div>
             </div>
-            <SettingPage isSetting={isSetting} setIsSetting={setIsSetting} handleClickSetting={handleClickSetting}/>
-            <StopWatch isStw={isStw} setIsStw={setIsStw} handleClickWatch={handleClickWatch}/>
+            <SettingPage isSetting={isSetting} setIsSetting={setIsSetting} handleClickSetting={handleClickSetting} />
+            <StopWatch isStw={isStw} setIsStw={setIsStw} handleClickWatch={handleClickWatch} />
         </nav>
     )
 };

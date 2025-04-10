@@ -1,0 +1,67 @@
+.Main .user-list {
+    border-bottom: 8px solid #eee;
+}
+
+.Main .user-list .MainCharts {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Main .task-list li {
+    padding: 16px;
+    border-top: 1px solid #ddd;
+}
+
+.Main .task-list li div {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.Main .task-list li .row2 {
+    color: #777;
+}
+
+.Main .task-list li .row2 .yes {
+    color: #008ffb;
+}
+
+.Main .task-list li .row2 .no {
+    color: #ff0000;
+}
+
+.Main .taskManager h1 {
+    padding: 28px 0;
+    text-align: center;
+    font-size: 32px;
+}
+
+.Main .taskManager .input-box {
+    padding: 24px 116px 24px 16px;
+    background-color: #f0f0f0;
+}
+
+.Main .taskManager .input-box input {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.Main .task-test {
+    position: relative;
+}
+
+.Main .task-test .btn-search-user {
+    position: absolute;
+    right: 16px;
+    top: -64px;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    background-color: #777;
+    border-radius: 0;
+    color: #fff;
+}

@@ -27,13 +27,13 @@ const MainCharts = ({ urid, taskDone }) => {
                     dataLabels: {
                         showOn: "always",
                         name: {
-                            offsetY: -10,
+                            offsetY: -20,
                             show: true,
-                            color: "#fff",
-                            fontSize: "13px"
+                            color: "#555",
+                            fontSize: "16px"
                         },
                         value: {
-                            color: "#fff",
+                            color: "#555",
                             fontSize: "30px",
                             show: true
                         }

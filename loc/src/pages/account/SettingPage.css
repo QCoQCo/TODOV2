@@ -5,24 +5,43 @@
     width: 0;
     height: 100%;
     overflow: hidden;
-    background-color: #111;
+    background-color: rgba(17, 17, 17, 0.85);
     z-index: 800;
     transition: width 1s;
 }
 
 .settings.view {
-    width: 90%;
+    width: 100%;
 }
 
 .setting-inner {
-    padding: 65px 20px;
-    width: 1280px;
+    position: relative;
+    box-sizing: border-box;
+    width: 80%;
+    height: 100vh;
+    margin-left: auto;
+    padding: 40px;
+    background-color: #000;
 }
 
-.setting-inner .dbView{
-    margin: 20px 20px;
+.settings h2 {
+    color: #fff;
 }
-.setting-inner .dbView p{
+
+.setting-inner .dbView {
+    margin: 20px 0px;
+}
+
+.setting-inner .dbView a {
+    color: #ddd;
+}
+
+.setting-inner .dbView p {
     margin-bottom: 12px;
 }
 
+.setting-inner button {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+}
