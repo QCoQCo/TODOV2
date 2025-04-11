@@ -7,7 +7,10 @@
     display: flex;
     margin-bottom: 10px;
 }
-
+.form-inner > div > label,
+.form-inner > div > p{
+    color: #555;
+}
 .wrapper {
     padding: 16px;
     background-color: #eee;
@@ -70,7 +73,9 @@
 .userList .user-info>div {
     padding: 4px 0;
 }
-
+.userList .user-info > div > p{
+    color: #555;
+}
 .userList .user-info div p:nth-child(1) {
     width: 80px;
     color: #555;
@@ -82,4 +87,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+}
+.taskList ul>li>div>p{
+    color: #555;
 }

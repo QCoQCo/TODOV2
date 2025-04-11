@@ -24,22 +24,37 @@ const MainCharts = ({ urid, taskDone }) => {
             series: [rate],
             plotOptions: {
                 radialBar: {
+                    startAngle: -135,
+                    endAngle: 225,
                     dataLabels: {
                         showOn: "always",
                         name: {
                             offsetY: -20,
                             show: true,
-                            color: "#555",
+                            color: "#fff",
                             fontSize: "16px"
                         },
                         value: {
-                            color: "#555",
+                            color: "#fff",
                             fontSize: "30px",
                             show: true
                         }
                     }
                 }
             },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                  shade: 'dark',
+                  type: 'horizontal',
+                  shadeIntensity: 0.5,
+                  gradientToColors: ['#ABE5A1'],
+                  inverseColors: true,
+                  opacityFrom: 1,
+                  opacityTo: 1,
+                  stops: [0, 100]
+                }
+              },
             labels: [`${urid}`],
         };
 

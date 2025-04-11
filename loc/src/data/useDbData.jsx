@@ -28,6 +28,7 @@ export const UseDbData=({children})=>{
         //     console.log(error);
         // }
     };
+
     const getSpecificUsser=async(userId)=>{
         try {
             const res=await axios.get("http://localhost:4000/getUser",{params:{userId}});
@@ -48,6 +49,7 @@ export const UseDbData=({children})=>{
             return[];
         }
     };
+
     const getSpecificTask=async(id)=>{
         try {
             const res=await axios.get("http://localhost:4000/tasks",{params:{id}});
@@ -105,6 +107,7 @@ export const UseDbData=({children})=>{
             console.log(error);
         }
     };
+    
     const logout=async()=>{
         try {
             const res=await axios.post("http://localhost:4000/logout");

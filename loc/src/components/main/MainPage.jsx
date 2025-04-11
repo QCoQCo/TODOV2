@@ -23,14 +23,13 @@ const List = ({ user, func }) => {
             <TaskList key={user.id} task={task} />
         </div>
     )
-
 };
 
 const TaskList = ({ task }) => {
     return (
         <div className="task">
             <ul className="task-list">
-                {task.map(data =>
+                {!task.length?<li>no task on this user.</li>:task.map(data =>
                     <li key={data.id}>
                         <div>
                             <p>목표 : {data.subject}</p>

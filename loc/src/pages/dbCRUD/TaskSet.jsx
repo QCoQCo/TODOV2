@@ -8,9 +8,11 @@ import './form-inner.css';
 const TaskSet=({title})=>{
     const{getUserTaskData,getSpecificUsser}=useContext(DataContext)
     const{userId}=useParams();
+
     useEffect(()=>{
         title('TASK MOD');
     });
+
     const[isAdd,setIsAdd]=useState(false);
 
     const AddComp=()=>{
@@ -20,6 +22,7 @@ const TaskSet=({title})=>{
     const[user,setUser]=useState({});
     const[tasks,setTasks]=useState([]);
     const[taskDone,setTaskDone]=useState([]);
+    
     useEffect(()=>{
         getSpecificUsser(userId)
             .then(data=>
@@ -32,7 +35,7 @@ const TaskSet=({title})=>{
         }).catch(err=>console.error('데이터 가져오기 실패',err));
     },[getSpecificUsser, getUserTaskData, userId]);
 
-    console.log(tasks,taskDone);
+    // console.log(tasks,taskDone);
 
     const onClickDone=(id,done)=>{
         const taskFM={
