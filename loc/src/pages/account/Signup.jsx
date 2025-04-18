@@ -4,7 +4,6 @@ import axios from "axios";
 import { DataContext } from "../../data";
 import './account.css';
 
-
 const Signup = ({ managerMD, setIdMd, setPwMd, handleClickUserModal }) => {
     const navigate = useNavigate();
     const { login } = useContext(DataContext);
@@ -27,7 +26,6 @@ const Signup = ({ managerMD, setIdMd, setPwMd, handleClickUserModal }) => {
         pwErrRef.current.textContent = '';
         setUserPw(e.target.value);
     };
-
 
     const handleSubmit = async () => {
         // 유효성 검사 
@@ -76,7 +74,6 @@ const Signup = ({ managerMD, setIdMd, setPwMd, handleClickUserModal }) => {
             console.error('로그인 데이터 로딩 실패 : ', err);
             matchErrRef.current.textContent = '로그인 중 오류가 발생했습니다. 다시 시도해주세요.'
         }
-
     };
 
     return (

@@ -3,7 +3,7 @@ import cors from 'cors';
 import db from "./config/db.js";
 // import userRoute from "./routes/user.js";
 // import taskRoute from "./routes/task.js";
-import {userRoute, taskRoute, getUserRoute} from "./routes/index.js"; 
+import {userRoute, taskRoute, getUserRoute,logRoute} from "./routes/index.js"; 
 // const express = require('express');
 const app = express();
 const appRouter=express.Router();
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(userRoute);
 app.use(taskRoute);
 app.use(getUserRoute);
-
+app.use(logRoute);
 
 // app.post("/tasks",(req,res)=>{
 //     const q ="in"

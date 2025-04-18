@@ -3,7 +3,6 @@ import {
     UserMng,FindId,FindPw,Signin,Signup,SignupComplete
 } from "../pages/account";
 
-
 const AccountRoutes=()=>{
     return(
         <Routes>
