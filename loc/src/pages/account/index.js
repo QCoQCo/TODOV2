@@ -6,6 +6,7 @@ import Signin from "./SignIn";
 import Signup from "./SignUp";
 import SignupComplete from "./SignUpComplete";
 import SettingPage from "./SettingPage";
+import GoogleBtn from "./GoogleBtn";
 
 
 export{
@@ -15,5 +16,6 @@ export{
     Signin,
     Signup,
     SignupComplete,
-    SettingPage
+    SettingPage,
+    GoogleBtn
 };

@@ -1,10 +1,12 @@
 import { useState, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import { DataContext } from "../../data";
+import GoogleBtn from "./GoogleBtn";
 import './account.css';
 
-const Signup = ({ managerMD, setIdMd, setPwMd, handleClickUserModal }) => {
+const Signup = ({ managerMD, setIdMd, setPwMd, handleClickUserModal, toGoogleLogin }) => {
     const navigate = useNavigate();
     const { login } = useContext(DataContext);
 
@@ -111,6 +113,10 @@ const Signup = ({ managerMD, setIdMd, setPwMd, handleClickUserModal }) => {
                     <p><Link to="" onClick={() => {
                         setPwMd(true);
                     }}>비밀번호 찾기</Link></p>
+                </div>
+                <div className='google-login'>
+                    <button onClick={toGoogleLogin}>구글 로그인</button>
+                    <GoogleBtn/>
                 </div>
             </div>
         </div>
