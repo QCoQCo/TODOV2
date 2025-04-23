@@ -34,7 +34,7 @@ const UserMng = ({ managerMD, handleClickUserModal }) => {
         const clientId='467988218008-3gf3fs2honpijsgvs1823c33f6cfnnln.apps.googleusercontent.com';
         const redirectUrl='http://localhost:5173/account/logincomplete';
         const scope='https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile';
-        const responseType='token';
+        const responseType='code';
         
         const AuthUrl=`https://accounts.google.com/o/oauth2/auth?`+
                 `client_id=${clientId}&`+
