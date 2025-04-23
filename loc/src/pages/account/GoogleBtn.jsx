@@ -10,20 +10,20 @@ const GoogleBtn=()=>{
     const redirectUrl='http://localhost:5173/account/logincomplete';
     const [userInfo,setUserInfo]=useState(null);
     const toMain=()=>{
-        // navigate('/');
-        // window.location.reload();
+        navigate('/');
+        window.location.reload();
     }
     const handleGoogleLogin=async(credentialRes)=>{
         const user=jwtDecode(credentialRes.credential);
         setUserInfo(user);
-        console.log(jwtDecode(credentialRes.credential));
+        // console.log(jwtDecode(credentialRes.credential));
         localStorage.setItem('googleToken',credentialRes.credential);
         //const res=await axios.post('http://localhost:4000/userLogIO/googleLogin'
-        await axios.post("http://localhost:4000/googleAuth",{
-            authCode:credentialRes.credential,
-        },{
-            headers:{accept: `application/json`},
-        });
+        // await axios.post("http://localhost:4000/googleAuth",{
+        //     authCode:credentialRes.credential,
+        // },{
+        //     headers:{accept: `application/json`},
+        // });
         const res=await axios.post('http://localhost:4000/googleLogin',{
             id:user.email,
             // authCode:credentialRes.code,

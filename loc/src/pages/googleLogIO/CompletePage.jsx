@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CompletePage = () => {
+    const navigate=useNavigate();
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
     // console.log(code);
@@ -48,7 +50,8 @@ const CompletePage = () => {
     };
     useEffect(()=>{
         handleGetAccessToken(code);
-        console.log(code);
+        navigate('/');
+        window.location.reload();
     },[code]);
         return (
             <div className="CompletePage">
