@@ -12,7 +12,7 @@ const GoogleBtn=()=>{
     const toMain=()=>{
         navigate('/');
         window.location.reload();
-    }
+    };
     const handleGoogleLogin=async(credentialRes)=>{
         const user=jwtDecode(credentialRes.credential);
         setUserInfo(user);
@@ -54,6 +54,6 @@ const GoogleBtn=()=>{
             </GoogleOAuthProvider>
         </>
     )
-}
+};
 
 export default GoogleBtn;

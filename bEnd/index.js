@@ -84,8 +84,8 @@ app.get("/",(req,res)=>{
 
 //추가
 app.post("/userSignup", (req, res) => {
-    const q = "insert into users (name, nickname, userId, password, email) values (?)";
-    const values = [req.body.name, req.body.nickname, req.body.userId, req.body.password, req.body.email];
+    const q = "INSERT INTO users (username, nickname, userId, password, email) VALUES (?)";
+    const values = [req.body.username ?? req.body.name, req.body.nickname, req.body.userId, req.body.password, req.body.email];
   
     db.query(q, [values], (err, data) => {
         if (err) return res.json(err);

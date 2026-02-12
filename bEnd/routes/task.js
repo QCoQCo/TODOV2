@@ -76,7 +76,7 @@ taskRoute.delete("/tasks",(req,res)=>{
 });
 
 taskRoute.put("/tasks", (req, res) => {
-    const q = "UPDATE tasks SET subject = ?, memo = ? WHERE Id = ?";
+    const q = "UPDATE tasks SET subject = ?, memo = ? WHERE id = ?";
     const {subject,memo,id}=req.body;
     // console.log(values);
     try {
@@ -90,7 +90,7 @@ taskRoute.put("/tasks", (req, res) => {
     }
 });
 taskRoute.put("/doneTask", (req, res) => {
-    const q = "UPDATE tasks SET done = ? WHERE Id = ?";
+    const q = "UPDATE tasks SET done = ? WHERE id = ?";
     const {done,id}=req.body;
     // console.log(values);
     try {
