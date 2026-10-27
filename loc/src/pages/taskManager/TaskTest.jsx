@@ -11,7 +11,7 @@ const TaskTest = ({ userId }) => {
 
     const getTaskData = async () => {
         try {
-            const res = await axios.get("http://localhost:4000/userTask", { params: { userId } });
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:4000'}/userTask`, { params: { userId } });
             if (res.status >= 200 && res.status < 300) {
                 // const data=await res.json();
                 //리턴문으로 바꾼다면?

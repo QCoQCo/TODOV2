@@ -36,7 +36,7 @@ const TaskEdit=({title})=>{
             id
         };
 
-        fetch('http://localhost:4000/tasks',{
+        fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000'}/tasks`,{
             method:'PUT',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(taskFM),

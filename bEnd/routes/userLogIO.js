@@ -2,7 +2,6 @@ import express,{Router} from 'express';
 import db from "../config/db.js";
 import axios from 'axios';
 // import jwt from 'jsonwebtoken';
-import 'dotenv/config';
 
 
 const logRoute=express.Router();

@@ -6,8 +6,8 @@ import axios from "axios";
 
 const GoogleBtn=()=>{
     const navigate=useNavigate();
-    const clientId='467988218008-3gf3fs2honpijsgvs1823c33f6cfnnln.apps.googleusercontent.com';
-    const redirectUrl='http://localhost:5173/account/logincomplete';
+    const clientId=import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    const redirectUrl=import.meta.env.VITE_GOOGLE_REDIRECT_URI;
     const [userInfo,setUserInfo]=useState(null);
     const toMain=()=>{
         navigate('/');
@@ -24,7 +24,7 @@ const GoogleBtn=()=>{
         // },{
         //     headers:{accept: `application/json`},
         // });
-        const res=await axios.post('http://localhost:4000/googleLogin',{
+        const res=await axios.post(`${import.meta.env.VITE_API_URL}/googleLogin`,{
             id:user.email,
             // authCode:credentialRes.code,
         });

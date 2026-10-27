@@ -39,7 +39,7 @@ const CompletePage = () => {
 
     const handleGetAccessToken = async (authorizationCode) => {
         await axios.post(
-            "http://localhost:4000/googleAuth", // 구글 소셜 로그인 엔드포인트
+            `${import.meta.env.VITE_API_URL}/googleAuth`,
             {
                 authCode: authorizationCode,
             },

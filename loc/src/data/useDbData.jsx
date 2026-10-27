@@ -2,6 +2,7 @@ import { useState,createContext,useEffect,useMemo } from "react";
 import axios from "axios";
 
 export const DataContext=createContext();
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
 export const UseDbData=({children})=>{
     const[userData,setUserData]=useState([]);
@@ -16,7 +17,7 @@ export const UseDbData=({children})=>{
 
     const getUserData=async()=>{
         try {
-            const res=await axios.get("http://localhost:4000/users");
+            const res=await axios.get(`${API_URL}/users`);
             if(JSON.stringify(userData)!=JSON.stringify(res.data))setUserData(res.data);
         } catch (error) {
             console.log(error);
@@ -31,7 +32,7 @@ export const UseDbData=({children})=>{
 
     const getSpecificUsser=async(userId)=>{
         try {
-            const res=await axios.get("http://localhost:4000/getUser",{params:{userId}});
+            const res=await axios.get(`${API_URL}/getUser`,{params:{userId}});
             if(res.status>=200&&res.status<300){
                 // const data=await res.json();
                 // setTaskData(res.data);
@@ -52,7 +53,7 @@ export const UseDbData=({children})=>{
 
     const getSpecificTask=async(id)=>{
         try {
-            const res=await axios.get("http://localhost:4000/tasks",{params:{id}});
+            const res=await axios.get(`${API_URL}/tasks`,{params:{id}});
             if(res.status>=200&&res.status<300){
                 // const data=await res.json();
                 // setTaskData(res.data);
@@ -73,7 +74,7 @@ export const UseDbData=({children})=>{
     
     const getUserTaskData=async(userId)=>{
         try {
-            const res=await axios.get("http://localhost:4000/userTask",{params:{userId}});
+            const res=await axios.get(`${API_URL}/userTask`,{params:{userId}});
             if(res.status>=200&&res.status<300){
                 // const data=await res.json();
                 // setTaskData(res.data);
@@ -94,7 +95,7 @@ export const UseDbData=({children})=>{
 
     const login=async(userId,password)=>{
         try {
-            const res=await axios.post("http://localhost:4000/login",{
+            const res=await axios.post(`${API_URL}/login`,{
                 userId,
                 password
             });
@@ -111,7 +112,7 @@ export const UseDbData=({children})=>{
     
     const logout=async()=>{
         try {
-            const res=await axios.post("http://localhost:4000/logout");
+            const res=await axios.post(`${API_URL}/logout`);
             if(res.status>=200&&res.status<300){
                 return res.data;
             }else{

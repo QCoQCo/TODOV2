@@ -51,7 +51,7 @@ const UserEdit=({ title })=>{
             email:email?email:user.email
         };
 
-        fetch('http://localhost:4000/users',{
+        fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000'}/users`,{
             method:'PUT',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(userFM),

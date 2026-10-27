@@ -4,6 +4,8 @@ import { DataContext } from "../../data";
 import UserAdd from "./UserAdd";
 import './form-inner.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+
 const UserSet = ({ title }) => {
     useEffect(() => {
         // window.location.reload();
@@ -18,7 +20,7 @@ const UserSet = ({ title }) => {
     };
 
     const onDelete = (id) => {
-        fetch('http://localhost:4000/users', {
+        fetch(`${API_URL}/users`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify({ id })
@@ -28,7 +30,7 @@ const UserSet = ({ title }) => {
 
     const onSubmit = (data) => {
         // e.preventDefault();
-        fetch('http://localhost:4000/users', {
+        fetch(`${API_URL}/users`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(data),

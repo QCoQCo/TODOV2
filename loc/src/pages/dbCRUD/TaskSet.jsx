@@ -5,6 +5,8 @@ import TaskAdd from "./TaskAdd";
 import MainCharts from "../../components/main/MainCharts";
 import './form-inner.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+
 const TaskSet=({title})=>{
     const{getUserTaskData,getSpecificUsser}=useContext(DataContext)
     const{userId}=useParams();
@@ -43,7 +45,7 @@ const TaskSet=({title})=>{
             id
         };
 
-        fetch('http://localhost:4000/donetask',{
+        fetch(`${API_URL}/doneTask`,{
             method:'PUT',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(taskFM),
@@ -52,7 +54,7 @@ const TaskSet=({title})=>{
     };
 
     const onDelete=(id)=>{
-        fetch('http://localhost:4000/tasks',{
+        fetch(`${API_URL}/tasks`,{
             method:'DELETE',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body:JSON.stringify({id})
@@ -62,7 +64,7 @@ const TaskSet=({title})=>{
 
     const onSubmit=(data)=>{
         // e.preventDefault();
-        fetch('http://localhost:4000/tasks',{
+        fetch(`${API_URL}/tasks`,{
             method:'POST',
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(data),

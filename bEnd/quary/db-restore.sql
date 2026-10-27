@@ -8,16 +8,15 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema users_data
+-- Schema todo_v2
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `users_data` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `users_data` ;
-
+CREATE SCHEMA IF NOT EXISTS `todo_v2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `todo_v2` ;
 -- -----------------------------------------------------
--- Table `users_data`.`users`
+-- Table `todo_v2`.`users`
 -- (user.js, getUser.js, userLogIO.js, index.js 참조)
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `users_data`.`users` (
+CREATE TABLE IF NOT EXISTS `todo_v2`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(20) NOT NULL COMMENT '사용자 실명',
   `nickname` VARCHAR(20) NOT NULL COMMENT '닉네임',
@@ -36,10 +35,10 @@ COLLATE = utf8mb4_unicode_ci
 COMMENT = '사용자 테이블';
 
 -- -----------------------------------------------------
--- Table `users_data`.`tasks`
+-- Table `todo_v2`.`tasks`
 -- (task.js 참조 - subject, memo, userId, done 컬럼 사용)
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `users_data`.`tasks` (
+CREATE TABLE IF NOT EXISTS `todo_v2`.`tasks` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `subject` VARCHAR(100) NOT NULL COMMENT '태스크 제목',
   `memo` TEXT NULL DEFAULT NULL COMMENT '태스크 메모',
@@ -51,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `users_data`.`tasks` (
   INDEX `idx_tasks_userId` (`userId` ASC) VISIBLE,
   CONSTRAINT `fk_tasks_userId`
     FOREIGN KEY (`userId`)
-    REFERENCES `users_data`.`users` (`userId`)
+    REFERENCES `todo_v2`.`users` (`userId`)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE = InnoDB
@@ -63,7 +62,7 @@ COMMENT = '할일 태스크 테이블';
 -- 샘플 데이터 (선택사항 - 테스트용)
 -- ex.json 참조
 -- -----------------------------------------------------
--- INSERT INTO `users_data`.`users` (`username`, `nickname`, `userId`, `password`, `email`) VALUES
+-- INSERT INTO `todo_v2`.`users` (`username`, `nickname`, `userId`, `password`, `email`) VALUES
 -- ('김희연', '멜로디', 'melody', 'pass123', 'user1@aa.com'),
 -- ('오사랑', '오리', 'duck', 'pass456', 'user2@aa.com');
 

@@ -31,8 +31,8 @@ const UserMng = ({ managerMD, handleClickUserModal }) => {
         // setPwMd(false);
         // handleClickUserModal();
         // // setGoogleMd(true);
-        const clientId='467988218008-3gf3fs2honpijsgvs1823c33f6cfnnln.apps.googleusercontent.com';
-        const redirectUrl='http://localhost:5173/account/logincomplete';
+        const clientId=import.meta.env.VITE_GOOGLE_CLIENT_ID;
+        const redirectUrl=import.meta.env.VITE_GOOGLE_REDIRECT_URI;
         const scope='https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile';
         const responseType='code';
         
